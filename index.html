@@ -26,10 +26,9 @@ a{color:inherit}
 .btn.ghost{border:1px solid var(--line2);color:var(--fg)}.btn.ghost:hover{border-color:var(--gold);color:var(--gold-soft)}
 /* nav */
 header{position:sticky;top:0;z-index:20;background:rgba(1,1,1,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{text-decoration:none;display:flex;align-items:baseline;gap:10px}
-.brand b{font-family:"Playfair Display",serif;font-weight:600;font-size:22px;color:var(--fg)}
-.brand span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:88px}
+.brand{text-decoration:none;display:flex;align-items:center}
+.brand img{height:70px;width:auto;display:block}
 nav ul{display:flex;gap:28px;list-style:none}
 nav a{font-size:13px;text-decoration:none;color:var(--muted);letter-spacing:.04em}nav a:hover{color:var(--fg)}
 .nav .btn{padding:10px 18px}
@@ -188,11 +187,11 @@ section{padding:96px 0}
 .card .v{overflow-wrap:anywhere;font-size:19px;color:var(--fg);text-decoration:none;display:block;margin-top:4px}
 .card .v:hover{color:var(--gold-soft)}
 .card .btn{margin-top:26px;width:100%;justify-content:center}
-footer{padding:36px 0;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
-footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer{padding:44px 0;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end}
 footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
 @media(max-width:900px){
-  .brand span{display:none}.nav{height:60px}nav ul{display:none}
+  .brand img{height:52px}.nav{height:70px}nav ul{display:none}
   .hero{padding:64px 0 60px}.hero .wrap{grid-template-columns:1fr}
   .stack{height:auto;display:grid;gap:12px}.pn{position:static;width:100%!important}.link{display:none}
   .grid3,.quotes,.ladder,.roles{grid-template-columns:1fr}.nums{grid-template-columns:repeat(2,1fr)}
@@ -207,7 +206,7 @@ footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
 <body>
 
 <header><div class="wrap nav">
-  <a class="brand" href="#top"><b>Signature</b><span>Branding &amp; Marketing</span></a>
+  <a class="brand" href="#top"><img src="img/logo.png" alt="Signature Branding &amp; Marketing Agency"></a>
   <nav><ul><li><a href="#what">What we do</a></li><li><a href="#system">Top to bottom</a></li><li><a href="#products">Products</a></li><li><a href="#proof">Results</a></li><li><a href="#founder">Founder</a></li><li><a href="#contact">Contact</a></li></ul></nav>
   <a class="btn gold" href="#contact">Start a conversation</a>
 </div></header>
@@ -364,7 +363,7 @@ footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
 </div></section>
 
 <footer><div class="wrap in">
-  <div>© 2026 Signature Branding &amp; Marketing · Winter Haven, FL</div>
+  <div><img src="img/logo.png" alt="Signature Branding &amp; Marketing Agency" style="height:72px;width:auto;display:block;margin-bottom:14px">© 2026 Signature Branding &amp; Marketing · Winter Haven, FL</div>
   <nav><ul style="display:flex;gap:22px;list-style:none"><li><a href="https://signaturebranding.app" target="_blank" rel="noopener">Branding System</a></li><li><a href="https://signatureagentos.com" target="_blank" rel="noopener">Agent OS</a></li><li><a href="https://signaturetow.com" target="_blank" rel="noopener">Tow Support</a></li><li><a href="https://signatureheadshotevent.com" target="_blank" rel="noopener">Headshot Events</a></li></ul></nav>
 </div></footer>
 

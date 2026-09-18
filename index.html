@@ -110,6 +110,65 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--dim);font-siz
 footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
 footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
 @media(max-width:900px){.brand span{display:none}.nav{height:60px}.grid3>*,.prod>*,.founder>*,.contact .in>*,.nums>*,.quotes>*{min-width:0}.card .v{font-size:17px}.grid3,.quotes{grid-template-columns:1fr}.nums{grid-template-columns:repeat(2,1fr)}.prod,.prod.alt{grid-template-columns:1fr}.prod.alt .txt{order:1}.prod.alt .vis{order:2}.founder,.contact .in{grid-template-columns:1fr}.founder img{max-width:420px}nav ul{display:none}.start{flex-direction:column;align-items:flex-start}.hero{padding:80px 0 70px}section{padding:72px 0}}
+
+/* hero image */
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.hero-img{position:relative;justify-self:end;width:100%;max-width:520px;aspect-ratio:4/5;border-radius:14px;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.hero-img:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,1,1,0) 55%,rgba(1,1,1,.92) 100%),linear-gradient(90deg,rgba(1,1,1,.55) 0%,rgba(1,1,1,0) 35%)}
+.hero-img .cap{position:absolute;left:22px;bottom:20px;z-index:2}
+.hero-img .cap b{display:block;font-family:"Playfair Display",serif;font-weight:500;color:var(--fg);font-size:18px}
+.hero-img .cap span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.hero-img .frame{position:absolute;inset:14px;border:1px solid rgba(201,165,103,.35);border-radius:10px;pointer-events:none;z-index:2}
+/* system diagram */
+.diagram{margin:0 auto 54px;max-width:820px;display:block}
+/* mosaic */
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:150px;gap:8px;padding:0;overflow:hidden}
+.mosaic img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;border-radius:6px;filter:saturate(.95)}
+.mosaic .tall{grid-row:span 2}
+.prod .vis.mosaic-wrap{padding:12px;min-height:0}
+.vis-label{position:absolute;left:24px;bottom:18px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);background:rgba(1,1,1,.7);padding:6px 10px;border-radius:4px}
+.prod .vis{position:relative}
+/* desk mock */
+.desk{padding:22px;min-height:0}
+.desk .bar{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.desk .bar i{width:9px;height:9px;border-radius:50%;background:#2a2620;display:block}
+.desk .bar span{margin-left:auto;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.tile{background:#100f0d;border:1px solid var(--line);border-radius:6px;padding:10px 12px}
+.tile small{display:block;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.tile b{display:block;font-family:"Playfair Display",serif;font-weight:500;font-size:22px;color:var(--gold-soft);margin-top:2px}
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.col h5{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:flex;justify-content:space-between}
+.col h5 em{font-style:normal;color:var(--gold)}
+.cardm{background:#141310;border:1px solid var(--line);border-radius:5px;padding:7px 8px;margin-bottom:6px}
+.cardm b{display:block;font-size:11px;color:var(--fg);font-weight:600}
+.cardm span{display:block;font-size:10px;color:var(--dim);margin-top:2px}
+.cardm .av{float:right;width:16px;height:16px;border-radius:50%;background:var(--gold);color:#0b0904;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-left:6px}
+.cardm.hot{border-color:var(--line2);box-shadow:0 0 0 1px rgba(201,165,103,.15)}
+/* phone mock */
+.phone-wrap{display:flex;justify-content:center;padding:26px;min-height:0}
+.phone{width:250px;background:#0a0a0a;border:1px solid var(--line2);border-radius:34px;padding:14px 12px 18px;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+.phone .notch{width:80px;height:8px;background:#1a1916;border-radius:6px;margin:0 auto 14px}
+.phone .time{text-align:center;font-family:"Playfair Display",serif;color:var(--fg);font-size:34px;line-height:1}
+.phone .date{text-align:center;color:var(--dim);font-size:11px;margin:4px 0 14px;letter-spacing:.08em;text-transform:uppercase}
+.bub{background:#141310;border:1px solid var(--line);border-radius:12px;padding:9px 11px;margin:8px 0;font-size:11.5px;color:var(--body);line-height:1.45}
+.bub.in{border-color:var(--line2)}
+.bub small{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.bub.ok{background:rgba(201,165,103,.12)}
+.phone .foot{text-align:center;margin-top:12px;font-size:10px;color:var(--dim);letter-spacing:.14em;text-transform:uppercase}
+/* photo band */
+.band{position:relative;overflow:hidden}
+.band:before{content:"";position:absolute;inset:0;background:url(img/stage.jpg) center 30%/cover no-repeat;opacity:.4;filter:saturate(.7)}
+.band:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#010101 0%,rgba(1,1,1,.55) 30%,rgba(1,1,1,.55) 70%,#010101 100%)}
+.band .wrap{position:relative;z-index:1}
+/* contact band */
+.contact{position:relative;overflow:hidden}
+.contact:before{content:"";position:absolute;inset:0;background:url(img/window.jpg) center/cover no-repeat;opacity:.18;filter:saturate(.6)}
+.contact:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,1,1,.92) 0%,rgba(1,1,1,.75) 55%,rgba(1,1,1,.55) 100%)}
+.contact .wrap{position:relative;z-index:1}
+.num,.q{backdrop-filter:blur(6px);background:rgba(10,10,10,.72)}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero-img{justify-self:start;max-width:420px;aspect-ratio:4/4.6}.mosaic{grid-auto-rows:120px}.cols{grid-template-columns:repeat(2,1fr)}.col:nth-child(n+3){display:none}.tiles{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
@@ -121,17 +180,32 @@ footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
 </div></header>
 
 <section class="hero" id="top"><div class="wrap">
+  <div>
   <div class="eyebrow">Winter Haven, Florida · Orlando · Tampa · South Florida · Atlanta</div>
   <h1>Builds the brand. Powers the growth. <em>Automates the success.</em></h1>
   <p>Signature Branding &amp; Marketing is a branding, marketing, and AI automation agency. We make you look like the authority you already are, put a growth system behind it, and let AI run the parts of the business that used to run you.</p>
   <div class="cta"><a class="btn gold" href="#products">See the products</a><a class="btn ghost" href="#what">How we work</a></div>
-  <div class="meta"><span>20+ years in sales &amp; marketing</span><span>Hundreds of professionals photographed every month</span><span>Three products. One system.</span></div>
+  <div class="meta"><span>20+ years in sales &amp; marketing</span><span>Three products. One system.</span></div>
+  </div>
+  <div class="hero-img"><img src="img/hero.jpg" alt="Kenneth Lamor Bridgett"><div class="frame"></div><div class="cap"><b>Kenneth Lamor Bridgett</b><span>Founder · Brand Strategist</span></div></div>
 </div></section>
 
 <div class="hair"></div>
 
 <section id="what"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">What we do</div><h2>Three disciplines. <em>One agency.</em></h2><p>Most agencies do one of these. The reason ours works is that the three are built to hand off to each other — the brand feeds the marketing, the marketing feeds the automation, and the automation keeps it all running when you're not in the room.</p></div>
+  <svg class="diagram" viewBox="0 0 820 170" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#c9a567" stop-opacity="0"/><stop offset=".5" stop-color="#c9a567"/><stop offset="1" stop-color="#c9a567" stop-opacity="0"/></linearGradient></defs>
+    <path d="M150 85 H310" stroke="url(#g)" stroke-width="1"/><path d="M510 85 H670" stroke="url(#g)" stroke-width="1"/>
+    <path d="M700 60 C 760 -10, 60 -10, 120 60" stroke="#c9a567" stroke-opacity=".35" stroke-width="1" stroke-dasharray="3 5"/>
+    <g font-family="Playfair Display, Georgia, serif" font-size="20" fill="#ffffff" text-anchor="middle">
+      <circle cx="110" cy="85" r="46" fill="#0a0a0a" stroke="#c9a567" stroke-opacity=".6"/><circle cx="110" cy="85" r="52" fill="none" stroke="#c9a567" stroke-opacity=".18"/><text x="110" y="92">Brand</text>
+      <circle cx="410" cy="85" r="46" fill="#0a0a0a" stroke="#c9a567" stroke-opacity=".6"/><circle cx="410" cy="85" r="52" fill="none" stroke="#c9a567" stroke-opacity=".18"/><text x="410" y="92">Growth</text>
+      <circle cx="710" cy="85" r="46" fill="#0a0a0a" stroke="#c9a567" stroke-opacity=".6"/><circle cx="710" cy="85" r="52" fill="none" stroke="#c9a567" stroke-opacity=".18"/><text x="710" y="92">Automation</text>
+    </g>
+    <g fill="#c9a567"><rect x="226" y="81" width="8" height="8" transform="rotate(45 230 85)"/><rect x="586" y="81" width="8" height="8" transform="rotate(45 590 85)"/><rect x="406" y="10" width="8" height="8" transform="rotate(45 410 14)"/></g>
+    <g font-family="Inter, sans-serif" font-size="10" fill="#989898" text-anchor="middle" letter-spacing="2"><text x="230" y="112">FEEDS</text><text x="590" y="112">FEEDS</text><text x="410" y="36">KEEPS IT RUNNING</text></g>
+  </svg>
   <div class="grid3">
     <div class="pillar"><div class="n">01</div><h3>Branding</h3><div class="tag">Look like the authority you are.</div><p>Photography, AI-generated brand imagery, brand kits, and a content system built in your voice.</p><ul><li>Signature Headshot Events &amp; executive portraits</li><li>AI branding imagery — 30+ premium styles</li><li>Brand kit: voice, message, visual identity</li><li>Content generated and published in your name</li></ul></div>
     <div class="pillar"><div class="n">02</div><h3>Marketing</h3><div class="tag">Be found. Be chosen.</div><p>The growth system behind the brand — funnels, campaigns, and outbound that fills a calendar instead of a feed.</p><ul><li>Websites, funnels, and booking pages that convert</li><li>Outbound engines — list, sequence, reply, appointment</li><li>Social and email content, scheduled and sent</li><li>Local and vertical campaigns built to a number</li></ul></div>
@@ -146,27 +220,38 @@ footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
     <div class="txt"><div class="eyebrow">For professionals &amp; business owners</div><h3>Signature Branding System</h3><div class="for">The brand, the imagery, the content — in your voice, on schedule.</div><p>Start with a headshot session. Leave with a brand: AI-generated imagery in premium styles, a brand kit that captures how you actually talk, and a content engine that keeps your name in front of the people who buy from you.</p>
       <div class="pts"><div>Signature Headshot Events — professional sessions across Florida and Atlanta</div><div>Signature Platinum™ AI branding — 30+ style worlds</div><div>LiveLoop — recurring content, produced and published for you</div><div>Growth Partner — the managed marketing tier, by application</div></div>
       <a class="btn ghost" href="https://signaturebranding.app" target="_blank" rel="noopener">signaturebranding.app →</a></div>
-    <div class="vis"><div class="k">Signature Branding System</div><div class="big">Look the part. <em>Then keep showing up.</em></div><div class="sub">Photography · AI imagery · brand kit · content engine</div><div class="row"><span class="chip">Headshot Events</span><span class="chip">Platinum™ Styles</span><span class="chip">LiveLoop</span><span class="chip">Growth Partner</span></div></div>
+    <div class="vis mosaic-wrap"><div class="mosaic"><img class="tall" src="img/m1.jpg" alt=""><img src="img/m2.jpg" alt=""><img src="img/m3.jpg" alt=""><img src="img/m4.jpg" alt=""><img class="tall" src="img/m6.jpg" alt=""><img src="img/m5.jpg" alt=""></div><div class="vis-label">Signature Platinum™ · one session, 30+ styles</div></div>
   </div>
 
   <div class="prod alt">
     <div class="txt"><div class="eyebrow">For life insurance agents</div><h3>Signature Agent OS</h3><div class="for">The complete AI operating system for a life insurance practice.</div><p>The Brain writes it. The Desk sends it. The Rainmaker fills it. One system that works your book, runs your follow-up, answers your inbox, and puts business owners on your calendar — installed and running in thirty days.</p>
       <div class="pts"><div>The Brain — an AI trained on your carriers, scripts, and underwriting rules</div><div>The Desk — your whole book on one board, every seat on one screen</div><div>The Rainmaker — outbound we run for you, appointments delivered</div><div>Thirty-day install · thirty-day money-back</div></div>
       <a class="btn ghost" href="https://signatureagentos.com" target="_blank" rel="noopener">signatureagentos.com →</a></div>
-    <div class="vis"><div class="k">Signature Agent OS</div><div class="big">Your whole operation. <em>One system.</em></div><div class="sub">The Brain · The Desk · The Rainmaker</div><div class="row"><span class="chip">AI Sales Brain</span><span class="chip">Branded CRM</span><span class="chip">Inbox Bot</span><span class="chip">Outbound, done for you</span></div></div>
+    <div class="vis desk"><div class="bar"><i></i><i></i><i></i><span>The Desk · Book of Business</span></div>
+      <div class="tiles"><div class="tile"><small>Open pipeline</small><b>$41.7K</b></div><div class="tile"><small>Booked this week</small><b>7</b></div><div class="tile"><small>Follow-ups sent</small><b>142</b></div></div>
+      <div class="cols">
+        <div class="col"><h5>Lead <em>3</em></h5><div class="cardm hot"><span class="av">DW</span><b>Tasha R. — Review</b><span>Booked by inbox bot · 9:14 PM</span></div><div class="cardm"><span class="av">MC</span><b>Denise A. — Final Expense</b><span>Touch 3 of 5 · day 2</span></div></div>
+        <div class="col"><h5>Quote <em>2</em></h5><div class="cardm"><span class="av">DW</span><b>Latasha G. — IUL</b><span>$6,000 · quote sent</span></div><div class="cardm"><span class="av">RW</span><b>Trevor H. — Whole Life</b><span>$3,600</span></div></div>
+        <div class="col"><h5>Underwriting <em>2</em></h5><div class="cardm"><span class="av">RW</span><b>Darnell W. — Whole Life</b><span>$4,200</span></div></div>
+        <div class="col"><h5>Issued <em>2</em></h5><div class="cardm"><span class="av">DW</span><b>Kimberly D. — Annuity</b><span>$9,000</span></div></div>
+      </div></div>
   </div>
 
   <div class="prod">
     <div class="txt"><div class="eyebrow">For tow operators</div><h3>Signature Tow Support</h3><div class="for">The 2 AM call gets answered. The job gets booked.</div><p>An AI dispatcher that picks up when you can't — on the side of the highway, at dinner, on your one day off — takes the details, and books the job instead of losing it to the next truck on Google. Flat rate. No contract.</p>
       <div class="pts"><div>Answers every missed call, 24/7, in seconds</div><div>Books the job and texts you the details</div><div>Your phone still rings first — nobody gets replaced</div><div>Flat monthly rate, whether it's hurricane week or a quiet one</div></div>
       <a class="btn ghost" href="https://signaturetow.com" target="_blank" rel="noopener">signaturetow.com →</a></div>
-    <div class="vis"><div class="k">Signature Tow Support</div><div class="big">Never lose <em>the 2 AM call.</em></div><div class="sub">AI dispatcher · missed-call recovery · flat rate</div><div class="row"><span class="chip">24/7 answering</span><span class="chip">Books the job</span><span class="chip">No contract</span></div></div>
+    <div class="vis phone-wrap"><div class="phone"><div class="notch"></div><div class="time">2:07</div><div class="date">AM · Tuesday</div>
+      <div class="bub in"><small>Incoming · missed</small>Stranded on I-4 near exit 55, need a tow to Lakeland…</div>
+      <div class="bub ok"><small>Signature dispatcher · answered in 2s</small>Got you. Silver Accord, I-4 exit 55 eastbound, to Lakeland. Truck's on the way — 25 minutes.</div>
+      <div class="bub"><small>Text to owner</small>New job booked: I-4 exit 55 → Lakeland. Caller: 863-555-0142. ETA quoted 25 min.</div>
+      <div class="foot">Your phone rang first. Nobody was replaced.</div></div></div>
   </div>
 
   <div class="start"><div><b>Where most people start: a $75 headshot.</b><span>One session, three retouched images, and a look at what a real brand would do for you. Events across Florida and Atlanta.</span></div><a class="btn gold" href="https://signatureheadshotevent.com" target="_blank" rel="noopener">Book a session</a></div>
 </div></section>
 
-<section id="proof"><div class="wrap">
+<section id="proof" class="band"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">Results</div><h2>Proof over hype. <em>Always.</em></h2></div>
   <div class="nums">
     <div class="num"><b>20+</b><span>years in sales, marketing, and production</span></div>

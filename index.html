@@ -193,7 +193,7 @@ footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
 @media(max-width:900px){
   .brand img{height:52px}.nav{height:70px}nav ul{display:none}
   .hero{padding:64px 0 60px}.hero .wrap{grid-template-columns:1fr}
-  .stack{height:auto;display:grid;gap:12px}.pn{position:static;width:100%!important}.link{display:none}
+  
   .grid3,.quotes,.ladder,.roles{grid-template-columns:1fr}.nums{grid-template-columns:repeat(2,1fr)}
   .prod,.prod.alt{grid-template-columns:1fr}.prod.alt .txt{order:1}.prod.alt .vis{order:2}
   .founder,.contact .in{grid-template-columns:1fr}.start{flex-direction:column;align-items:flex-start}
@@ -201,6 +201,14 @@ footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
   .grid3>*,.prod>*,.founder>*,.contact .in>*,.nums>*,.quotes>*,.ladder>*{min-width:0}.card .v{font-size:17px}
   section{padding:72px 0}
 }
+
+/* hero video */
+.hero-video{position:relative;border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:#000;box-shadow:0 40px 90px rgba(0,0,0,.7);aspect-ratio:16/9}
+.hero-video video{width:100%;height:100%;display:block;object-fit:cover}
+.hero-video .play{position:absolute;inset:0;width:100%;height:100%;border:0;background:linear-gradient(180deg,rgba(1,1,1,0),rgba(1,1,1,.5));color:#fff;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:9%;gap:14px;font-family:Inter,sans-serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;transition:.25s}
+.hero-video .play svg{width:74px;height:74px;padding:22px;border-radius:50%;background:var(--gold);color:#0b0904;box-shadow:0 10px 40px rgba(201,165,103,.35);transition:.25s}
+.hero-video .play:hover svg{background:var(--gold-soft);transform:scale(1.06)}
+.hero-video.playing .play{opacity:0;pointer-events:none}
 </style>
 </head>
 <body>
@@ -219,18 +227,9 @@ footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
     <div class="cta"><a class="btn gold" href="#system">See how it fits together</a><a class="btn ghost" href="#products">The products</a></div>
     <div class="meta"><span>Strategy · Creative · Systems · AI</span><span>Florida &amp; Atlanta</span></div>
   </div>
-  <div class="stack" aria-hidden="true">
-    <svg class="link" viewBox="0 0 560 540" preserveAspectRatio="none"><path d="M300 90 C 360 90, 380 140, 400 140" stroke="#c9a567" stroke-opacity=".5" stroke-dasharray="3 5" fill="none"/><path d="M230 330 C 230 380, 210 400, 220 430" stroke="#c9a567" stroke-opacity=".5" stroke-dasharray="3 5" fill="none"/></svg>
-    <div class="pn p1"><div class="h"><span>01 · Brand</span><i>brand kit</i></div>
-      <div class="sw"><i style="background:#c9a567"></i><i style="background:#e6cf9a"></i><i style="background:#1c1a16"></i><i style="background:#ffffff"></i><i style="background:#7a6a4a"></i></div>
-      <div class="aa"><b>Aa</b><span>Playfair Display · Inter<br>Voice: warm · direct · proof over hype</span></div>
-      <div class="tags"><i>Positioning</i><i>Message</i><i>Imagery</i><i>Content system</i></div></div>
-    <div class="pn growth"><div class="h"><span>02 · Growth</span><i>this month</i></div>
-      <div class="kpi"><div><small>Leads</small><b>184</b></div><div><small>Booked</small><b>41</b></div><div><small>Pipeline</small><b>$96K</b></div></div>
-      <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-    <div class="pn auto"><div class="h"><span>03 · Automation</span><i>runs itself</i></div>
-      <div class="flow"><b>New lead</b><span>→</span><b class="on">AI writes</b><span>→</span><b>Text</b><span>→</span><b>Email</b><span>→</span><b class="on">Booked</b></div>
-      <div class="chat"><small>Inbox agent · 9:14 PM</small>"Yes — we handle that. Dana has Monday at 10 or Tuesday at 2. Which works?"</div></div>
+  <div class="hero-video" id="heroVideo">
+    <video id="brandVideo" poster="img/poster.jpg" preload="metadata" playsinline src="video/signature-brand-video.mp4"></video>
+    <button class="play" id="playBtn" aria-label="Play the video"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Watch — 52 seconds</span></button>
   </div>
 </div></section>
 
@@ -367,5 +366,12 @@ footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
   <nav><ul style="display:flex;gap:22px;list-style:none"><li><a href="https://signaturebranding.app" target="_blank" rel="noopener">Branding System</a></li><li><a href="https://signatureagentos.com" target="_blank" rel="noopener">Agent OS</a></li><li><a href="https://signaturetow.com" target="_blank" rel="noopener">Tow Support</a></li><li><a href="https://signatureheadshotevent.com" target="_blank" rel="noopener">Headshot Events</a></li></ul></nav>
 </div></footer>
 
+
+<script>
+(function(){var w=document.getElementById('heroVideo'),v=document.getElementById('brandVideo'),b=document.getElementById('playBtn');
+b.addEventListener('click',function(){w.classList.add('playing');v.controls=true;v.play();});
+v.addEventListener('ended',function(){w.classList.remove('playing');v.controls=false;v.currentTime=0;});
+v.addEventListener('pause',function(){if(v.currentTime>0&&v.currentTime<v.duration){}});})();
+</script>
 </body>
 </html>

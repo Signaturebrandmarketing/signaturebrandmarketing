@@ -31,7 +31,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(1,1,1,.82);backdrop-filt
 .brand img{height:70px;width:auto;display:block}
 nav ul{display:flex;gap:28px;list-style:none}
 nav a{font-size:13px;text-decoration:none;color:var(--muted);letter-spacing:.04em}nav a:hover{color:var(--fg)}
-.nav .btn{padding:10px 18px}
+.nav .btn{padding:10px 18px}.nav-cta{display:flex;gap:10px;align-items:center}
 /* hero */
 .hero{padding:84px 0 90px;position:relative;overflow:hidden}
 .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(1100px 600px at 50% 85%,rgba(201,165,103,.16),transparent 60%);pointer-events:none}
@@ -191,7 +191,7 @@ footer{padding:44px 0;border-top:1px solid var(--line);color:var(--dim);font-siz
 footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end}
 footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
 @media(max-width:900px){
-  .brand img{height:52px}.nav{height:70px}nav ul{display:none}
+  .brand img{height:52px}.nav{height:70px}nav ul{display:none}.nav-cta .ghost{display:none}
   .hero{padding:56px 0 56px}.hero-video{margin-top:40px}
   
   .grid3,.quotes,.ladder,.roles{grid-template-columns:1fr}.nums{grid-template-columns:repeat(2,1fr)}
@@ -216,7 +216,7 @@ footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
 <header><div class="wrap nav">
   <a class="brand" href="#top"><img src="img/logo.png" alt="Signature Branding &amp; Marketing Agency"></a>
   <nav><ul><li><a href="#what">What we do</a></li><li><a href="#system">Top to bottom</a></li><li><a href="#products">Products</a></li><li><a href="#proof">Results</a></li><li><a href="#founder">Founder</a></li><li><a href="#contact">Contact</a></li></ul></nav>
-  <a class="btn gold" href="#contact">Start a conversation</a>
+  <div class="nav-cta"><a class="btn ghost" href="/assessment/">Free assessment</a><a class="btn gold" href="#contact">Start a conversation</a></div>
 </div></header>
 
 <section class="hero" id="top"><div class="wrap">
@@ -224,7 +224,7 @@ footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
     <div class="eyebrow">A branding, marketing &amp; AI automation agency · Winter Haven, Florida</div>
     <h1>Builds the brand. Powers the growth. <em>Automates the success.</em></h1>
     <p>One team, one plan, top to bottom. We build the brand, put a growth system behind it, and install the AI that keeps it running when you're not in the room. For the company that wants a total solution — not a vendor for every piece.</p>
-    <div class="cta"><a class="btn gold" href="#system">See how it fits together</a><a class="btn ghost" href="#products">The products</a></div>
+    <div class="cta"><a class="btn gold" href="/assessment/">Take the free 2-minute assessment</a><a class="btn ghost" href="#system">See how it fits together</a></div>
     <div class="meta"><span>Strategy · Creative · Systems · AI</span><span>Florida &amp; Atlanta</span></div>
   </div>
   <div class="hero-video" id="heroVideo">
@@ -358,6 +358,7 @@ footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
     <div class="l">Email</div><a class="v" href="mailto:Ken@signaturebrandmarketing.com">Ken@signaturebrandmarketing.com</a>
     <div class="l">Based in</div><div class="v">Winter Haven, Florida</div>
     <a class="btn gold" href="mailto:Ken@signaturebrandmarketing.com?subject=Let%27s%20talk">Start a conversation</a>
+    <p style="margin:14px 0 0;font-size:13px;color:var(--muted)">Not ready to talk? <a href="/assessment/" style="color:var(--gold)">Take the free 2-minute AI readiness assessment</a> and see where you stand.</p>
   </div>
 </div></section>
 

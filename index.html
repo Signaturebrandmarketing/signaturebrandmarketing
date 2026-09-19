@@ -203,7 +203,9 @@ footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
 }
 
 /* hero video */
-.hero-video{position:relative;max-width:1040px;margin:56px auto 0;border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:#000;box-shadow:0 40px 90px rgba(0,0,0,.7);aspect-ratio:16/9}
+.hero-video{position:relative;max-width:1040px;margin:56px auto 0;}
+.hero-after{text-align:center;margin:36px auto 0}.hero-after .btn{padding:16px 30px;font-size:15px}.hero-after small{display:block;margin-top:12px;font-size:12.5px;color:var(--muted);letter-spacing:.04em}
+.hero-video{border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:#000;box-shadow:0 40px 90px rgba(0,0,0,.7);aspect-ratio:16/9}
 .hero-video video{width:100%;height:100%;display:block;object-fit:cover}
 .hero-video .play{position:absolute;inset:0;width:100%;height:100%;border:0;background:linear-gradient(180deg,rgba(1,1,1,0),rgba(1,1,1,.5));color:#fff;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:9%;gap:14px;font-family:Inter,sans-serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;transition:.25s}
 .hero-video .play svg{width:74px;height:74px;padding:22px;border-radius:50%;background:var(--gold);color:#0b0904;box-shadow:0 10px 40px rgba(201,165,103,.35);transition:.25s}
@@ -231,6 +233,7 @@ footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
     <video id="brandVideo" poster="img/poster.jpg" preload="metadata" playsinline src="video/signature-brand-video.mp4"></video>
     <button class="play" id="playBtn" aria-label="Play the video"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Watch — 52 seconds</span></button>
   </div>
+  <div class="hero-after"><a class="btn gold" href="/assessment/">Take the free 2-minute assessment</a><small>Ten questions · score on screen · no login</small></div>
 </div></section>
 
 <div class="hair"></div>

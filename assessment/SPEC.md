@@ -118,3 +118,13 @@
 
 ## Not in v1
 - PDF report (email is the report). Industry-specific skins. Dollar-loss math (needs a defensible model per vertical — later, per skin).
+
+---
+## STATUS — live 2026-09-18, 8:45 PM
+- **Page:** https://signaturebrandmarketing.com/assessment/ (linked from the site header "Free assessment", the hero's gold button, and the contact card).
+- **GHL (Ken's location BRJc9fh3GQOimVGYkvxX):** workflow **"AI Readiness Assessment"** `b09ca039-35ef-4f24-bd25-3bcabd7987a8` — **Published.** Inbound Webhook → Create/Update Contact → Update Custom Fields (10) → Tag `ai-readiness` → Result email to contact (From "Ken Bridgett", default sender) → Email notification to ken@signaturebrandmarketing.com.
+- **Webhook:** `https://services.leadconnectorhq.com/hooks/BRJc9fh3GQOimVGYkvxX/webhook-trigger/Rij2JRrZNTttdanTksUT` (in `index.html` as `SUBMIT_URL`). Premium trigger — small per-execution charge.
+- **Proven:** live submission "Testy McTestface / testy.readiness@example.com" (fictional) → contact created 8:44 PM, tag set, all 10 fields populated, subject merged ("Testy, your AI readiness score is 33"), both email steps Executed. The contact-email shows "Not Sent" only because example.com has no MX — expected. Test contact left in place for Ken to inspect; delete when done.
+- **Custom fields actually built** (folder Additional Info): `ar_score, ar_tier, ar_pillars, ar_gaps, ar_answers, ar_industry, ar_team_size, ar_revenue, sms_consent, email_opt_in`. (`ar_brand/growth/automation` are folded into `ar_pillars`; `ar_gap_1..3` folded into `ar_gaps` as "1) gap → The fix: … | 2) … | 3) …".)
+- **Not done yet (v1.1):** company name (not mappable in the Create/Update step — needs its own Update Contact Field), contact source, tier/industry tags, SMS step gated on `sms_consent = yes`, "Readiness" pipeline + opportunity, dedicated 15-min readiness calendar (booking link currently = agent-os-demo), Ken's sign-off on the ten questions + result copy.
+- **Builder gotchas:** rich-text editors take `Enter` (not `Return`) for new lines; switching Internal Notification type clears the message; leave From Email blank so it uses the verified default sender.

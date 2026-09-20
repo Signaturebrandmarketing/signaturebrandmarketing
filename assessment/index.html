@@ -75,6 +75,11 @@ section{padding:64px 0}
 .gap b{font-family:"Playfair Display",serif;font-weight:500;font-size:22px;color:var(--gold-soft);line-height:1}
 .gap strong{display:block;color:var(--fg);font-weight:600;font-size:16px}
 .gap span{display:block;color:var(--muted);font-size:14.5px;margin-top:3px}
+.fix{margin-top:28px;padding:26px 28px;border:1px solid var(--gold);border-radius:14px;background:radial-gradient(500px 200px at 0% 0%,rgba(201,165,103,.16),transparent 60%),var(--card);display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+.fix small{display:block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
+.fix b{display:block;font-family:"Playfair Display",serif;font-weight:500;font-size:24px;color:var(--fg);line-height:1.2}
+.fix p{margin-top:6px;color:var(--muted);font-size:14.5px}
+@media(max-width:700px){.fix{grid-template-columns:1fr}}
 .ask{margin-top:40px;padding:34px;border:1px solid var(--line2);border-radius:14px;background:var(--card)}
 .ask h3{font-size:26px;margin-bottom:6px}
 .ask p{color:var(--muted);margin-bottom:22px}
@@ -135,6 +140,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--dim);font-siz
     <div class="pb"><small>Automation</small><b id="r-auto">0%</b><i id="r-auto-bar" style="--w:0%"></i></div>
   </div>
   <div class="gaps"><h3>Your three biggest gaps</h3><div id="r-gaps"></div></div>
+  <div id="r-fix"></div>
 
   <div class="ask" id="ask">
     <h3>Want the full report — and the one-page plan for closing these?</h3>
@@ -219,6 +225,16 @@ function score(){
   $('r-growth').textContent=growth+'%'; $('r-growth-bar').style.setProperty('--w',growth+'%');
   $('r-auto').textContent=auto+'%'; $('r-auto-bar').style.setProperty('--w',auto+'%');
   $('r-gaps').innerHTML=gaps.map((g,n)=>`<div class="gap"><b>0${n+1}</b><div><strong>${GAPS[g][0]}</strong><span>The fix: ${GAPS[g][1]}</span></div></div>`).join('');
+  // Route to the product that closes the top gaps
+  (function(){
+    const ind=$('p-industry').value, top=gaps.slice(0,3), has=a=>top.some(g=>a.includes(g));
+    let r=null;
+    if(ind==='Insurance') r={k:'Signature Agent OS',t:'Built for insurance agencies — the Brain, the Desk, the Rainmaker. Installed in 30 days.',u:'https://signatureagentos.com',c:'See Agent OS'};
+    else if(has([4,5,6,7,8])) r={k:'Signature Funnels · from $129/mo',t:'Missed-call text-back, AI chat that books, follow-up that never forgets. Installed for you, running in a week.',u:'../funnels/',c:'See the plans'};
+    else if(has([0,1,2])) r={k:'Signature Branding System',t:'A brand that sounds like you — voice, positioning, visuals, and a content engine that publishes for you.',u:'https://signaturebranding.app',c:'See the system'};
+    else if(has([3,9])) r={k:'Growth Partner',t:'One team owns the whole thing — brand, marketing, automation — so the business runs without you.',u:'https://signaturebrandmarketing.com/#products',c:'How it works'};
+    $('r-fix').innerHTML=r?`<div class="fix"><div><small>What closes this</small><b>${r.k}</b><p>${r.t}</p></div><a class="btn gold" href="${r.u}" target="_blank" rel="noopener">${r.c}</a></div>`:'';
+  })();
   $('t-book').href=BOOK_URL; go('s-result');
 }
 async function submitLead(e){

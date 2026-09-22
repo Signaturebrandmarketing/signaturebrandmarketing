@@ -128,3 +128,35 @@
 - **Custom fields actually built** (folder Additional Info): `ar_score, ar_tier, ar_pillars, ar_gaps, ar_answers, ar_industry, ar_team_size, ar_revenue, sms_consent, email_opt_in`. (`ar_brand/growth/automation` are folded into `ar_pillars`; `ar_gap_1..3` folded into `ar_gaps` as "1) gap → The fix: … | 2) … | 3) …".)
 - **Not done yet (v1.1):** company name (not mappable in the Create/Update step — needs its own Update Contact Field), contact source, tier/industry tags, SMS step gated on `sms_consent = yes`, "Readiness" pipeline + opportunity, dedicated 15-min readiness calendar (booking link currently = agent-os-demo), Ken's sign-off on the ten questions + result copy.
 - **Builder gotchas:** rich-text editors take `Enter` (not `Return`) for new lines; switching Internal Notification type clears the message; leave From Email blank so it uses the verified default sender.
+
+---
+# v1.1 — shipped Tue 2026-09-22
+
+**Ken's question:** is 10 questions enough to assess someone properly — should it be 15 or 20?
+
+**Answer:** the count wasn't the problem. Q4 ("Where do new clients come from today?") and Q9 ("What happens to the calls you can't pick up?") already captured the Funnels-vs-Growth-Partner signal — the routing block was throwing it away, because it ranked *gaps* instead of reading those answers. That was a logic bug, not a question shortage. The one thing 10 questions genuinely couldn't tell us was **volume**: "referrals only" doesn't separate a business that's drowning from one that's starving.
+
+**What changed — 10 → 12.**
+Two questions added at positions 11 and 12. **Neither is scored.**
+- Q11 `How many new inquiries do you get in a typical week — calls, messages, form fills?` → 0–2 / 3–10 / 10–25 / 25+
+- Q12 `What's actually in the way right now?` → Not enough leads / Losing the leads I get / Can't keep up with the work / Not sure
+
+They're unscored on purpose: the score stays out of 100 on the same 10 pillar questions, so Anita (66), Erma (20) and Victoria (67) stay comparable to everyone who takes it from here on. `NS=10` is the scored count, `NQ=Q.length` drives the UI. Adding a scored question later means moving the tier thresholds — don't do it casually.
+
+**Routing rewritten** around the positioning rule (see `signature-ops/POSITIONING-FUNNELS-VS-GROWTH-PARTNER.md`), in priority order:
+1. Industry = Insurance → **Agent OS** (overrides everything)
+2. Blocker = "not enough leads", **or** 0–2/wk *and* referral-only → **Growth Partner** (the phone isn't ringing)
+3. Blocker = "losing leads" or "can't keep up", **or** a capture gap in the top 3 → **Signature Funnels** (it rings and it's leaking)
+4. Brand gaps in the top 3 → **Branding System**
+5. Gap 3 or 9 → **Growth Partner**
+
+Growth Partner now points at `/growth-partner/` instead of `#contact`.
+
+**Verified:** 6 routing cases pass headlessly + a full 12-step click-through, no JS errors, score scale unchanged (all-B still = 30/100).
+
+**Copy updated:** assessment intro "12 questions"; main-site hero sub "Twelve questions". The **"2-minute" promise stays** — 12 short questions is still two minutes, and the Square email that went out 9/22 to ~2,400 people promises two minutes.
+
+## ⚠️ Still to wire in GHL
+The payload now sends `ar_volume`, `ar_blocker` and `ar_recommended`, but **no custom fields exist for them yet**, so GHL drops them. As a stopgap the readable version is appended to `ar_answers` (already mapped), which now reads:
+`1B,2C,…,10A · 3–10 inquiries/wk · In the way: Losing the leads they get · Route: Signature Funnels · from $129/mo`
+To do properly: create the three custom fields, map them in the workflow, and add Volume / In the way / Route to the internal notification email.

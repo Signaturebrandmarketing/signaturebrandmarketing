@@ -104,7 +104,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--dim);font-siz
   <h1>How ready is your business to run <em>without you?</em></h1>
   <p class="lead">Ten questions. No right answers — just honest ones. You'll get a 0–100 score, a breakdown across brand, growth, and automation, and the three gaps costing you the most. On screen, immediately.</p>
   <div class="cta"><button class="btn gold" onclick="go('s-profile')">Start the assessment</button></div>
-  <div class="meta"><span>10 questions</span><span>Score shown instantly</span><span>No pitch. One offer at the end: a 15-minute call, if you want it.</span></div>
+  <div class="meta"><span>12 questions</span><span>Score shown instantly</span><span>No pitch. One offer at the end: a 15-minute call, if you want it.</span></div>
 </div></section>
 
 <!-- PROFILE -->
@@ -182,8 +182,11 @@ const Q=[
  {p:"Automation",t:"How much of your follow-up depends on somebody remembering?",o:["All of it","Most of it","Some — a few things are automated","Almost none — the system fires and stops when they reply"]},
  {p:"Automation",t:"A message comes in at 9 PM. What happens?",o:["It waits until morning","I answer it if I happen to see it","My assistant handles it the next day","It's answered and booked automatically"]},
  {p:"Automation",t:"What happens to the calls you can't pick up?",o:["Voicemail — I call back when I can","Voicemail — and most of them never call back","An answering service takes a message","They're answered and booked, day or night"]},
- {p:"Automation",t:"If you took two weeks off, would leads still get answered, followed up, and booked?",o:["No","Some would","Most would","Yes — it runs without me"]}
+ {p:"Automation",t:"If you took two weeks off, would leads still get answered, followed up, and booked?",o:["No","Some would","Most would","Yes — it runs without me"]},
+ {p:"Demand",r:1,t:"How many new inquiries do you get in a typical week — calls, messages, form fills?",o:["0–2","3–10","10–25","25 or more"]},
+ {p:"Demand",r:1,t:"What's actually in the way right now?",o:["Not enough leads coming in","I'm losing the leads I do get","Can't keep up with the work I have","Not sure — that's why I'm here"]}
 ];
+const NS=10, NQ=Q.length;   // NS = scored questions; the last two route, they don't score
 const PTS=[0,3,7,10];
 const GAPS=[
  ["Nobody can find you — or what they find doesn't sound like you","Brand kit + a site that reads like you"],
@@ -204,21 +207,24 @@ const TIERS=[
  [100,"Ready to scale.","You're running a system. The question now is capacity — more leads in, and a team on one screen."]
 ];
 const $=id=>document.getElementById(id);
-let ans=Array(10).fill(null), cur=0, result=null;
+let ans=Array(NQ).fill(null), cur=0, result=null;
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));$(id).classList.add('on');window.scrollTo({top:0,behavior:'smooth'});}
 function startQuiz(){ if(!$('p-business').value.trim()){$('p-business').focus();return;} cur=0; renderQ(); go('s-quiz'); }
-function renderQ(){const q=Q[cur]; $('q-count').textContent=(cur+1)+' / 10'; $('q-bar').style.width=(6+ (cur/10)*94)+'%'; $('q-pillar').textContent=q.p; $('q-text').textContent=q.t;
+function renderQ(){const q=Q[cur]; $('q-count').textContent=(cur+1)+' / '+NQ; $('q-bar').style.width=(6+ (cur/NQ)*94)+'%'; $('q-pillar').textContent=q.p; $('q-text').textContent=q.t;
   $('q-opts').innerHTML=q.o.map((o,i)=>`<button class="opt${ans[cur]===i?' sel':''}" onclick="pick(${i})"><b>${'ABCD'[i]}</b><span>${o}</span></button>`).join('');
-  $('q-next').disabled=ans[cur]===null; $('q-next').textContent=cur===9?'See my score':'Next'; $('q-back').style.visibility='visible';}
+  $('q-next').disabled=ans[cur]===null; $('q-next').textContent=cur===NQ-1?'See my score':'Next'; $('q-back').style.visibility='visible';}
 function pick(i){ans[cur]=i; renderQ(); setTimeout(nextQ,260);}
-function nextQ(){ if(ans[cur]===null) return; if(cur<9){cur++;renderQ();} else score(); }
+function nextQ(){ if(ans[cur]===null) return; if(cur<NQ-1){cur++;renderQ();} else score(); }
 function prevQ(){ if(cur>0){cur--;renderQ();} else go('s-profile'); }
 function score(){
-  const pts=ans.map(a=>PTS[a]); const total=pts.reduce((a,b)=>a+b,0);
+  const pts=ans.slice(0,NS).map(a=>PTS[a]); const total=pts.reduce((a,b)=>a+b,0);
   const brand=Math.round(pts.slice(0,3).reduce((a,b)=>a+b,0)/30*100), growth=Math.round(pts.slice(3,6).reduce((a,b)=>a+b,0)/30*100), auto=Math.round(pts.slice(6).reduce((a,b)=>a+b,0)/40*100);
   const tier=TIERS.find(t=>total<=t[0]); const tierIdx=TIERS.indexOf(tier)+1;
   const gaps=pts.map((p,i)=>({p,i})).sort((a,b)=>a.p-b.p||a.i-b.i).slice(0,3).map(g=>g.i);
-  result={total,brand,growth,auto,tier:tier[1],tierIdx,gaps,answers:ans.map((a,i)=>(i+1)+'ABCD'[a]).join(',')};
+  const VOL=['0–2 inquiries/wk','3–10 inquiries/wk','10–25 inquiries/wk','25+ inquiries/wk'];
+  const BLK=['Not enough leads coming in','Losing the leads they get','Can\u2019t keep up with the work','Not sure'];
+  result={total,brand,growth,auto,tier:tier[1],tierIdx,gaps,volume:VOL[ans[10]],blocker:BLK[ans[11]],
+    answers:ans.map((a,i)=>(i+1)+'ABCD'[a]).join(',')};
   $('r-biz').textContent=$('p-business').value.trim(); $('r-score').textContent=total; $('r-ring').style.setProperty('--p',total);
   $('r-tier').textContent=tier[1]; $('r-tierline').textContent=tier[2];
   $('r-brand').textContent=brand+'%'; $('r-brand-bar').style.setProperty('--w',brand+'%');
@@ -228,11 +234,20 @@ function score(){
   // Route to the product that closes the top gaps
   (function(){
     const ind=$('p-industry').value, top=gaps.slice(0,3), has=a=>top.some(g=>a.includes(g));
+    const vol=ans[10], blk=ans[11], src=ans[3];   // volume, self-diagnosed blocker, where clients come from
+    const P={
+      agentos:{k:'Signature Agent OS',t:'Built for insurance agencies — the Brain, the Desk, the Rainmaker. Installed in 30 days.',u:'https://signatureagentos.com',c:'See Agent OS'},
+      funnels:{k:'Signature Funnels · from $129/mo',t:'The demand is already there and it\u2019s leaking out. Missed calls answered, leads followed up, appointments booked — installed in a week.',u:'../funnels/',c:'See the plans'},
+      gp:{k:'Growth Partner · by application',t:'This isn\u2019t a funnel problem — there isn\u2019t enough coming in yet for a funnel to catch. Growth Partner builds the brand and the demand, then runs it.',u:'../growth-partner/',c:'How it works'},
+      brand:{k:'Signature Branding System',t:'A brand that sounds like you — voice, positioning, visuals, and a content engine that publishes for you.',u:'https://signaturebranding.app',c:'See the system'}
+    };
     let r=null;
-    if(ind==='Insurance') r={k:'Signature Agent OS',t:'Built for insurance agencies — the Brain, the Desk, the Rainmaker. Installed in 30 days.',u:'https://signatureagentos.com',c:'See Agent OS'};
-    else if(has([4,5,6,7,8])) r={k:'Signature Funnels · from $129/mo',t:'Missed-call text-back, AI chat that books, follow-up that never forgets. Installed for you, running in a week.',u:'../funnels/',c:'See the plans'};
-    else if(has([0,1,2])) r={k:'Signature Branding System',t:'A brand that sounds like you — voice, positioning, visuals, and a content engine that publishes for you.',u:'https://signaturebranding.app',c:'See the system'};
-    else if(has([3,9])) r={k:'Growth Partner',t:'One team owns the whole thing — brand, marketing, automation — so the business runs without you.',u:'https://signaturebrandmarketing.com/#products',c:'How it works'};
+    if(ind==='Insurance') r=P.agentos;
+    else if(blk===0 || (vol===0 && src===0)) r=P.gp;              // the phone isn't ringing
+    else if(blk===1 || blk===2 || has([4,5,6,7,8])) r=P.funnels;  // it rings, and it's leaking
+    else if(has([0,1,2])) r=P.brand;
+    else if(has([3,9])) r=P.gp;
+    result.recommended=r?r.k:'';
     $('r-fix').innerHTML=r?`<div class="fix"><div><small>What closes this</small><b>${r.k}</b><p>${r.t}</p></div><a class="btn gold" href="${r.u}" target="_blank" rel="noopener">${r.c}</a></div>`:'';
   })();
   $('t-book').href=BOOK_URL; go('s-result');
@@ -243,7 +258,7 @@ async function submitLead(e){
     company:$('p-business').value.trim(),industry:$('p-industry').value,team:$('p-team').value,revenue:$('p-revenue').value,
     sms_consent:$('l-sms').checked?'yes':'no',email_ok:$('l-email-ok').checked?'yes':'no',
     ar_score:result.total,ar_tier:result.tier,ar_brand:result.brand,ar_growth:result.growth,ar_automation:result.auto,
-    ar_gap_1:GAPS[result.gaps[0]][0],ar_gap_2:GAPS[result.gaps[1]][0],ar_gap_3:GAPS[result.gaps[2]][0],ar_gaps:result.gaps.map((g,i)=>(i+1)+') '+GAPS[g][0]+' → The fix: '+GAPS[g][1]).join('   |   '),ar_pillars:'Brand '+result.brand+'% · Growth '+result.growth+'% · Automation '+result.auto+'%',ar_answers:result.answers,
+    ar_gap_1:GAPS[result.gaps[0]][0],ar_gap_2:GAPS[result.gaps[1]][0],ar_gap_3:GAPS[result.gaps[2]][0],ar_gaps:result.gaps.map((g,i)=>(i+1)+') '+GAPS[g][0]+' → The fix: '+GAPS[g][1]).join('   |   '),ar_pillars:'Brand '+result.brand+'% · Growth '+result.growth+'% · Automation '+result.auto+'%',ar_answers:result.answers+' · '+result.volume+' · In the way: '+result.blocker+' · Route: '+(result.recommended||'—'),ar_volume:result.volume,ar_blocker:result.blocker,ar_recommended:result.recommended||'',
     source:'AI Readiness Assessment',page:location.href,submitted_at:new Date().toISOString()};
   if($('l-sms').checked && !payload.phone){ btn.disabled=false; btn.textContent='Send my report'; $('l-phone').focus(); return false; }
   try{ if(SUBMIT_URL){ await fetch(SUBMIT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); } else { console.log('AR payload',payload); } }catch(err){ console.warn(err); }

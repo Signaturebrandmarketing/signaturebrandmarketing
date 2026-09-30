@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What We Built — Signature Branding &amp; Marketing</title>
+<meta name="description" content="We built our own system first, because it's the foundation every client system is built on: two full applications, a 24/7 AI team, and the technology behind it.">
+<meta property="og:title" content="What We Built — Signature Branding &amp; Marketing">
+<meta property="og:description" content="I'm not going to tell you about AI. I'm going to show you what we built with it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://signaturebrandmarketing.com/built/">
+<meta property="og:image" content="https://signaturebrandmarketing.com/built/ecosystem-map.png">
+<link rel="canonical" href="https://signaturebrandmarketing.com/built/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#010101;--card:#0a0a0a;--panel:#100f0d;--line:rgba(201,165,103,.2);--line2:rgba(201,165,103,.42);--gold:#c9a567;--gold-soft:#e6cf9a;--fg:#fff;--body:#d9d4c9;--muted:#989898;--dim:#6e6a62}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--body);font-family:Inter,-apple-system,"Helvetica Neue",Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-wrap:anywhere}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:20;background:rgba(1,1,1,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:80px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg)}
+.brand img{height:40px;width:auto}
+.brand b{font-weight:600;letter-spacing:.02em;font-size:18px}.brand b span{color:var(--gold)}
+.nav a.back{font-size:13px;color:var(--muted);text-decoration:none;letter-spacing:.04em}.nav a.back:hover{color:var(--fg)}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:.2s}
+.btn.gold{background:var(--gold);color:#0b0904}.btn.gold:hover{background:var(--gold-soft)}
+.btn.ghost{border:1px solid var(--line2);color:var(--fg);background:transparent}.btn.ghost:hover{border-color:var(--gold)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px}
+.eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:500;color:var(--fg);line-height:1.1;text-wrap:balance}
+h1 em,h2 em{font-style:italic;color:var(--gold-soft)}
+section{padding:84px 0}
+.hair{height:1px;background:linear-gradient(90deg,transparent,var(--line2),transparent)}
+.hero{padding:80px 0 72px;position:relative;overflow:hidden}
+.hero-text{text-align:center}
+.hero-text h1{margin:18px auto 22px;max-width:980px}
+.hero-text .lead{margin:0 auto}
+.hero .hero-text .cta{justify-content:center}
+.hero .map{margin-top:40px}
+.motto{margin-top:34px;font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:clamp(22px,2.4vw,28px);color:var(--gold-soft);letter-spacing:.01em}
+
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 50% 0%,rgba(201,165,103,.16),transparent 62%);pointer-events:none}
+.hero .wrap{position:relative}
+.hero h1{font-size:clamp(36px,5.2vw,64px)}
+.hero p.lead{font-size:19px;max-width:760px}
+.hero .cta{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:56px}
+.stat{border:1px solid var(--line);border-radius:12px;padding:20px 14px;background:var(--card);text-align:center}
+.stat b{display:block;font-family:"Playfair Display",serif;font-size:34px;color:var(--gold-soft);font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:10px;font-size:13px;color:var(--muted);line-height:1.4}
+.sec-head{max-width:800px}.sec-head h2{font-size:clamp(30px,4vw,46px);margin:14px 0 16px}.sec-head p{font-size:17px}
+.map{margin-top:36px;border:1px solid var(--line2);border-radius:14px;overflow-x:auto;background:#0c0c0c;box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.map img{display:block;width:100%;min-width:880px;height:auto}
+.map-note{margin-top:14px;font-size:14px;color:var(--muted);text-align:center}.map-note a{color:var(--gold)}.map-note .swipe{display:none}
+@media(max-width:900px){.map-note .swipe{display:block;margin-top:6px;font-size:13px;color:var(--dim)}}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 26px;min-width:0}
+.card .n{font-family:"Playfair Display",serif;font-style:italic;color:var(--gold);font-size:20px}
+.card h3{font-size:23px;margin:10px 0 10px}
+.card p{color:var(--muted);font-size:15px}
+.card ul{list-style:none;margin-top:10px;display:grid;gap:7px}
+.card li{padding-left:18px;position:relative;font-size:14.5px;color:var(--muted)}
+.card li b{color:var(--body);font-weight:600}
+.card li:before{content:"";position:absolute;left:0;top:10px;width:9px;height:2px;background:var(--gold)}
+.card.lead-card{border-color:var(--gold)}
+.phil{text-align:center;max-width:900px}
+.phil h2{font-size:clamp(30px,4vw,46px);margin:14px auto 16px}
+.phil>p{font-size:17px;max-width:720px;margin:0 auto}
+.bridge-row{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch;margin-top:36px}
+.bridge-row .side{border:1px solid var(--line2);border-radius:14px;padding:22px 20px;background:var(--card)}
+.bridge-row .side b{display:block;font-family:"Playfair Display",serif;font-size:26px;color:var(--fg);font-weight:500}
+.bridge-row .side span{display:block;margin-top:6px;font-size:14.5px;color:var(--muted)}
+.bridge-row .mid{display:flex;align-items:center;gap:10px;align-self:center}
+.bridge-row .mid i{display:block;width:48px;height:2px;background:var(--gold)}
+.bridge-row .mid em{font-family:"Playfair Display",serif;font-style:italic;color:var(--gold-soft);font-size:18px;white-space:nowrap}
+.phil .result{margin-top:28px;font-size:16px;color:var(--body)}
+.phil .result b{color:var(--gold-soft);font-weight:600}
+@media(max-width:700px){.bridge-row{grid-template-columns:1fr}.bridge-row .mid{justify-content:center}.bridge-row .mid i{width:28px}}
+.app{margin-top:36px;background:var(--card);border:1px solid var(--line2);border-radius:16px;padding:34px 32px}
+.app+.app{margin-top:22px}
+.app-head{display:grid;grid-template-columns:minmax(260px,.9fr) 1.1fr;gap:32px;align-items:end;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.app-head .n{font-family:"Playfair Display",serif;font-style:italic;color:var(--gold);font-size:18px}
+.app-head h3{font-size:clamp(28px,3.4vw,40px);margin:6px 0 6px}
+.app-head .url{font-size:14px;color:var(--gold-soft);letter-spacing:.02em}
+.app-head p{color:var(--body);font-size:16px}
+.mods{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.mods>div{border:1px solid var(--line);border-radius:10px;padding:14px 14px;background:var(--panel);min-width:0}
+.mods b{display:block;color:var(--fg);font-size:14.5px;font-weight:600;line-height:1.3}
+.mods span{display:block;margin-top:5px;font-size:13px;color:var(--muted);line-height:1.4}
+.app-foot{margin-top:20px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.mods.five{grid-template-columns:repeat(5,1fr)}
+@media(max-width:980px){.mods,.mods.five{grid-template-columns:repeat(2,1fr)}.app-head{grid-template-columns:1fr;gap:14px}}
+@media(max-width:520px){.mods,.mods.five{grid-template-columns:1fr}.app{padding:26px 20px}}
+.stack{margin-top:40px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.row{display:grid;grid-template-columns:240px 1fr;gap:20px;padding:18px 24px;border-top:1px solid var(--line);align-items:center}
+.row:first-child{border-top:0}
+.row .k{color:var(--fg);font-weight:600;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13.5px;color:var(--body);border:1px solid var(--line2);border-radius:999px;padding:5px 12px;background:var(--panel)}
+.story{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.story img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 0%;border-radius:14px;border:1px solid var(--line2);display:block}
+.story blockquote{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(22px,2.6vw,31px);color:var(--fg);line-height:1.3;border-left:2px solid var(--gold);padding-left:24px}
+.story .by{margin-top:16px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.took{list-style:none;margin-top:28px;display:grid;gap:14px}
+.took li{padding-left:22px;position:relative;font-size:16px;color:var(--muted)}
+.took li b{color:var(--fg);font-weight:600}
+.took li:before{content:"";position:absolute;left:0;top:11px;width:11px;height:2px;background:var(--gold)}
+.close{text-align:center}
+.close h2{font-size:clamp(30px,4.4vw,50px);margin:14px auto 18px;max-width:840px}
+.close p{max-width:640px;margin:0 auto 30px;font-size:17px}
+footer{padding:40px 0;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--fg)}
+@media(max-width:980px){.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.grid3{grid-template-columns:1fr}.story{grid-template-columns:1fr;gap:34px}section{padding:60px 0}.nav .btn{display:none}.row{grid-template-columns:1fr;gap:10px}}
+@media(max-width:520px){.stats{grid-template-columns:repeat(2,1fr)}.nav a.back{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <a class="brand" href="#top"><img src="../img/logo.png" alt=""><b>What We <span>Built</span></b></a>
+  <a class="back" href="../">← signaturebrandmarketing.com</a>
+  <a class="btn gold" href="../assessment/">Take the assessment</a>
+</div></header>
+
+<section class="hero" id="top"><div class="wrap">
+  <div class="hero-text">
+    <div class="eyebrow">Building Out Loud</div>
+    <h1>I'm not going to tell you about AI. <em>I'm going to show you what we built with it.</em></h1>
+    <p class="lead">We took our time building our own system first, because it's the foundation every client system is built on. What we built isn't a pile of tools. It's an ecosystem designed to produce working systems for our clients. Here it is, all on one page.</p>
+    <div class="cta">
+      <a class="btn gold" href="#built">See what we built</a>
+      <a class="btn ghost" href="#stack">What it runs on</a>
+    </div>
+    <p class="motto">&ldquo;Authenticity meets scalability.&rdquo;</p>
+  </div>
+  <div class="map" id="map"><img src="ecosystem-map.png" alt="The Signature Ecosystem: front doors (headshot events, outbound, content, the free assessment, ambassadors) lead to an intake and data engine (kiosk check-in, the Signature Branding System app, the CRM), which routes each person to one of seven offers, from Signature Headshots up to Signature Agent OS. Happy clients feed Signature Rewards and ambassadors, whose referrals come back in through the front door." width="2400" height="1300" fetchpriority="high"></div>
+  <p class="map-note">Every door leads to the intake. The intake routes each person to the right offer. Happy clients bring the next ones. <span class="swipe">On a phone, swipe to see the whole map, or <a href="ecosystem-map.png" target="_blank" rel="noopener">open it full size</a>.</span></p>
+  <div class="stats">
+    <div class="stat"><b>20</b><span>web apps and sites built since January 2026</span></div>
+    <div class="stat"><b>5,000+</b><span>updates shipped to our core platform</span></div>
+    <div class="stat"><b>3,000+</b><span>client accounts across our platforms</span></div>
+    <div class="stat"><b>83+</b><span>AI brand styles in our image system</span></div>
+    <div class="stat"><b>7</b><span>social accounts running on a content system</span></div>
+    <div class="stat"><b>24/7</b><span>AI agents answering calls and questions</span></div>
+  </div>
+</div></section>
+
+<div class="hair"></div>
+
+<section id="philosophy"><div class="wrap phil">
+  <div class="eyebrow">Our build philosophy</div>
+  <h2>Human judgment and intuition, <em>woven into AI capability.</em></h2>
+  <p>This is the core of how we build. It isn't about buying a tool off the shelf. It's about building the bridge between two worlds, so every project, ours and our clients', is both authentic and scalable.</p>
+  <div class="bridge-row">
+    <div class="side"><b>Human</b><span>Judgment, intuition, your voice, your story</span></div>
+    <div class="mid"><i></i><em>The bridge</em><i></i></div>
+    <div class="side"><b>AI</b><span>Capability, speed, scale, consistency</span></div>
+  </div>
+  <div class="result">The result: <b>authenticity</b> and <b>scalability</b>, on every project.</div>
+</div></section>
+
+<div class="hair"></div>
+
+<section id="built"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">What we built</div>
+    <h2>Two full applications. <em>Not templates. Not plugins.</em></h2>
+    <p>Both are complete production apps with their own accounts, payments, dashboards and backends. We built them from scratch, and they run our business every day.</p>
+  </div>
+
+  <div class="app">
+    <div class="app-head"><div><div class="n">The flagship</div><h3>Signature Branding System</h3><div class="url">signaturebranding.app</div></div>
+      <p>One login for everything a client needs to build their brand, fill their content calendar and grow their business. It's also the production backbone behind Signature Agent OS.</p></div>
+    <div class="mods">
+      <div><b>Signature DNA</b><span>The brand interview that captures who you are, so the AI sounds like you</span></div>
+      <div><b>Brand kit &amp; branding wizard</b><span>Colors, fonts, voice and assets, captured once and used everywhere</span></div>
+      <div><b>AI brand images</b><span>83+ styles, including premium Platinum packs</span></div>
+      <div><b>AI &amp; headshot galleries</b><span>Every client's images, delivered and organized</span></div>
+      <div><b>Headshot booking &amp; sessions</b><span>Event booking and session management by city</span></div>
+      <div><b>Industry pages</b><span>27 industries, and headshot pages by city and industry</span></div>
+      <div><b>Creative Studio</b><span>A design editor and templates built from the brand kit</span></div>
+      <div><b>Content generators</b><span>Copy, carousels, video and a built-in blog</span></div>
+      <div><b>LiveLoop</b><span>The monthly content engine</span></div>
+      <div><b>Growth Partner platform</b><span>Client onboarding, deliverables and health scores</span></div>
+      <div><b>Authority Sprint</b><span>The 48-hour brand messaging intensive</span></div>
+      <div><b>Signature Branding Academy</b><span>Courses built on the Signature DNA method</span></div>
+      <div><b>Ambassador &amp; referral funnels</b><span>Personal referral pages for every ambassador</span></div>
+      <div><b>Checkout, intake &amp; codes</b><span>Payments, onboarding and redemption codes</span></div>
+      <div><b>Fulfillment &amp; admin</b><span>Production queues and business dashboards</span></div>
+      <div><b>Sig</b><span>A voice concierge that walks clients through the app</span></div>
+    </div>
+    <div class="app-foot">5,000+ updates shipped · 100+ backend functions · 3,000+ client accounts</div>
+  </div>
+
+  <div class="app">
+    <div class="app-head"><div><div class="n">The growth engine</div><h3>Signature Rewards</h3><div class="url">signaturerewards.app</div></div>
+      <p>Turns happy clients into a referral engine. Seven functions in one app, behind an attorney-approved compliance stack.</p></div>
+    <div class="mods five">
+      <div><b>Rewards engine</b><span>Dollar credits for referrals, reviews and testimonials</span></div>
+      <div><b>Services marketplace</b><span>Book media services from vetted providers</span></div>
+      <div><b>Ambassador program</b><span>A back office, automatic referral links for every service, and recruiter overrides</span></div>
+      <div><b>One-link ambassador join</b><span>Pay, get verified and approved automatically</span></div>
+      <div><b>Preferred-partner directory</b><span>Featured local businesses</span></div>
+      <div><b>Nonprofit fundraising</b><span>Donations, tickets and auction items</span></div>
+      <div><b>Bartering</b><span>Members trade services with each other</span></div>
+      <div><b>Event perks</b><span>QR check-in and VIP tiers</span></div>
+      <div><b>Certified photographer program</b><span>Local photographers who fulfill in new cities</span></div>
+      <div><b>Compliance stack</b><span>Versioned terms, consent logging and privacy-request handling</span></div>
+    </div>
+    <div class="app-foot">7 functions · attorney-approved compliance · one-link ambassador onboarding</div>
+  </div>
+</div></section>
+
+<div class="hair"></div>
+
+<section id="around"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">Around them</div>
+    <h2>Seven more systems. <em>One business running on all of them.</em></h2>
+  </div>
+  <div class="grid3">
+    <div class="card lead-card"><div class="n">01</div><h3>The front door: Signature Headshot Events</h3><p>Clients clicked our ads but wouldn't drive in, so we went to them. An event booking site with city pages and referral tracking, and a check-in kiosk that turns every attendee into a client account and a CRM contact automatically.</p></div>
+    <div class="card"><div class="n">02</div><h3>The automation layer</h3><p>CRM pipelines, booking calendars, automated follow-up, a scored AI Readiness Assessment that routes every lead, and a content system publishing across seven social accounts without anyone touching it.</p></div>
+    <div class="card"><div class="n">03</div><h3>The AI team</h3><ul>
+      <li><b>Sig</b>: voice concierge inside our app</li>
+      <li><b>Amber</b>: an AI dispatcher answering real business phone lines 24/7 and texting the owner every job</li>
+      <li><b>Amos</b>: our outbound sales engine</li>
+      <li><b>Ezra</b>: our operations hub, holding the whole picture</li></ul></div>
+    <div class="card"><div class="n">04</div><h3>Industry systems</h3><p>The same platform, configured for one industry at a time.</p><ul>
+      <li><b>Signature Agent OS</b>: the AI operating system for independent insurance agents</li>
+      <li><b>Signature Tow Support</b>: AI dispatch and missed-call recovery for towing companies</li></ul></div>
+    <div class="card"><div class="n">05</div><h3>Commerce</h3><p>Sig-nuh-ture apparel: a custom clothing builder with live color mixing, a 3D garment preview, and print-ready files sent to the printer automatically. Plus the Signature Print Shop.</p></div>
+    <div class="card"><div class="n">06</div><h3>Content production</h3><p>Kinetic video ads, AI imagery and video, and an editing pipeline that transcribes, cuts and formats our videos for every platform.</p></div>
+    <div class="card"><div class="n">07</div><h3>Trust and infrastructure</h3><p>Authenticated business email, payments across two processors that sync automatically, consent tracking and privacy compliance. The part nobody sees, and the part that has to be right.</p></div>
+  </div>
+</div></section>
+
+<div class="hair"></div>
+
+<section id="stack"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">What it runs on</div>
+    <h2>The technology <em>behind every piece.</em></h2>
+    <p>No single tool does this. The work is in choosing the right ones and making them run as one system.</p>
+  </div>
+  <div class="stack">
+    <div class="row"><div class="k">App building</div><div class="chips"><span class="chip">Lovable</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Tailwind</span><span class="chip">GitHub</span></div></div>
+    <div class="row"><div class="k">Database and backend</div><div class="chips"><span class="chip">Supabase</span><span class="chip">Postgres</span><span class="chip">Edge functions</span><span class="chip">Scheduled jobs</span><span class="chip">Row-level security</span></div></div>
+    <div class="row"><div class="k">AI</div><div class="chips"><span class="chip">Claude</span><span class="chip">Claude Code</span><span class="chip">Gemini</span><span class="chip">ElevenLabs voice AI</span></div></div>
+    <div class="row"><div class="k">Images, video and 3D</div><div class="chips"><span class="chip">AI image generation</span><span class="chip">Higgsfield</span><span class="chip">Whisper transcription</span><span class="chip">ffmpeg</span></div></div>
+    <div class="row"><div class="k">CRM and automation</div><div class="chips"><span class="chip">GoHighLevel</span><span class="chip">Workflows</span><span class="chip">Calendars</span><span class="chip">Social planner</span><span class="chip">Make.com</span></div></div>
+    <div class="row"><div class="k">Phone and text</div><div class="chips"><span class="chip">Twilio voice and SMS</span><span class="chip">A2P 10DLC registration</span></div></div>
+    <div class="row"><div class="k">Email</div><div class="chips"><span class="chip">Google Workspace (SPF · DKIM · DMARC)</span><span class="chip">Instantly</span></div></div>
+    <div class="row"><div class="k">Payments</div><div class="chips"><span class="chip">Stripe</span><span class="chip">Square</span><span class="chip">Automatic sync</span></div></div>
+    <div class="row"><div class="k">Leads and data</div><div class="chips"><span class="chip">Outscraper</span><span class="chip">Apollo</span></div></div>
+    <div class="row"><div class="k">Tracking</div><div class="chips"><span class="chip">Meta Pixel</span><span class="chip">Conversions API</span></div></div>
+  </div>
+</div></section>
+
+<div class="hair"></div>
+
+<section id="took"><div class="wrap story">
+  <img src="ken-teaching.jpg" alt="Kenneth Bridgett teaching at a whiteboard" width="768" height="1344" loading="lazy">
+  <div>
+    <div class="eyebrow">What it took</div>
+    <blockquote style="margin-top:16px">Everything we sell, we built on ourselves first.</blockquote>
+    <div class="by">Kenneth Bridgett · Founder</div>
+    <ul class="took">
+      <li><b>Building with AI, not just using it.</b> None of this came from a template. Every piece was designed, built, broken, fixed and rebuilt, more than 5,000 times on our core platform alone.</li>
+      <li><b>Systems before content.</b> Content got cheap. What separates a business now is what happens after someone raises their hand, so we built the part that catches it.</li>
+      <li><b>Every build answered the last bottleneck.</b> Events came from clients who wouldn't drive in. The kiosk came from too many people to track by hand. The app came from all that data. Rewards came from clients who kept referring people.</li>
+      <li><b>Twenty years of brand and content work</b> underneath all of it.</li>
+    </ul>
+  </div>
+</div></section>
+
+<div class="hair"></div>
+
+<section class="close"><div class="wrap">
+  <div class="eyebrow">Your turn</div>
+  <h2>See where your business stands <em>in two minutes.</em></h2>
+  <p>Twelve questions. A score, and the three gaps costing you the most. Yours to keep, whether or not we ever work together.</p>
+  <a class="btn gold" href="../assessment/">Take the free assessment</a>
+  <p style="margin-top:22px;font-size:14px;color:var(--muted)">Rather talk? <a href="https://api.leadconnectorhq.com/widget/bookings/signature-15-min-call" target="_blank" rel="noopener" style="color:var(--gold)">Book 15 minutes with Ken</a></p>
+</div></section>
+
+<footer><div class="wrap in">
+  <div>© 2026 Signature Branding &amp; Marketing · Winter Haven, FL · <a href="../">signaturebrandmarketing.com</a></div>
+  <div><a href="../funnels/">Signature Funnels</a> · <a href="../growth-partner/">Growth Partner</a> · <a href="https://signatureagentos.com">Agent OS</a> · <a href="https://signaturebranding.app">Branding System</a> · <a href="https://signatureheadshotevent.com">Headshot Events</a> · <a href="https://signaturerewards.app">Signature Rewards</a></div>
+</div></footer>
+
+</body>
+</html>

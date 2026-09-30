@@ -9,7 +9,7 @@
 <meta property="og:description" content="Getting a bunch of tools and executing are two completely different things. We focus the vision, lay out the steps, and walk it out with you.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://signaturebrandmarketing.com/vision/">
-<meta property="og:image" content="https://signaturebrandmarketing.com/built/ecosystem-map.png">
+<meta property="og:image" content="https://signaturebrandmarketing.com/vision/img/poster.jpg">
 <link rel="canonical" href="https://signaturebrandmarketing.com/vision/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,6 +43,12 @@ section{padding:84px 0}
 .hero p.lead{font-size:19px;max-width:720px;margin:0 auto}
 .hero .cta{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .hero .tag{margin-top:30px;font-family:"Playfair Display",serif;font-size:15px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+.hero-video{position:relative;max-width:960px;margin:44px auto 0;border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:#000;box-shadow:0 40px 90px rgba(0,0,0,.7);aspect-ratio:16/9}
+.hero-video video{width:100%;height:100%;display:block;object-fit:cover}
+.hero-video .play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:9%;gap:14px;background:linear-gradient(180deg,rgba(1,1,1,0) 55%,rgba(1,1,1,.75));border:0;cursor:pointer;color:var(--fg);font-family:inherit;font-size:13px;letter-spacing:.22em;text-transform:uppercase}
+.hero-video .play svg{width:74px;height:74px;border-radius:50%;background:var(--gold);color:#0b0904;padding:22px;transition:.2s}
+.hero-video .play:hover svg{background:var(--gold-soft);transform:scale(1.06)}
+.hero-video.playing .play{opacity:0;pointer-events:none}
 .sec-head{max-width:800px}.sec-head h2{font-size:clamp(30px,4vw,46px);margin:14px 0 16px}.sec-head p{font-size:17px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 26px;min-width:0}
@@ -119,6 +125,10 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--fg)}
     <a class="btn ghost" href="#how">How the 90 days work</a>
   </div>
   <div class="tag">Focus · Build · Execute</div>
+  <div class="hero-video" id="heroVideo">
+    <video id="vesVideo" poster="img/poster.jpg" preload="metadata" playsinline src="video/signature-ves-video.mp4"></video>
+    <button class="play" id="playBtn" aria-label="Play the video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>How it works — 56 seconds</span></button>
+  </div>
 </div></section>
 
 <div class="hair"></div>
@@ -257,5 +267,11 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--fg)}
   <div><a href="../built/">What We Built</a> · <a href="../growth-partner/">Growth Partner</a> · <a href="../funnels/">Signature Funnels</a> · <a href="https://signatureagentos.com">Agent OS</a> · <a href="https://signaturebranding.app">Branding System</a> · <a href="https://signaturerewards.app">Signature Rewards</a></div>
 </div></footer>
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoObject","name":"The Vision Execution System — how the 90 days work","description":"Getting a bunch of tools and executing are two completely different things. In 90 days we focus the vision, build your brain, build it with you, and launch a system you own.","thumbnailUrl":["https://signaturebrandmarketing.com/vision/img/poster.jpg"],"uploadDate":"2026-09-30T19:00:00-04:00","duration":"PT57S","contentUrl":"https://signaturebrandmarketing.com/vision/video/signature-ves-video.mp4","embedUrl":"https://signaturebrandmarketing.com/vision/#top","inLanguage":"en-US"}
+</script>
+<script>
+(function(){var w=document.getElementById('heroVideo'),v=document.getElementById('vesVideo'),b=document.getElementById('playBtn');if(!w||!v||!b)return;b.addEventListener('click',function(){w.classList.add('playing');v.controls=true;v.play();});v.addEventListener('ended',function(){w.classList.remove('playing');v.controls=false;v.currentTime=0;});})();
+</script>
 </body>
 </html>

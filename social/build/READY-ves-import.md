@@ -18,3 +18,14 @@ Every slot was empty for that surface: YouTube had nothing after 10/1, and Sat 1
 - **In the narrow browser pane, ref clicks on the review screen land in the wrong spot.** Clicking the radio input in JS (`input[value=reel]` → `.click()`) worked.
 - **One warning remained on FB/LI and IG and couldn't be opened in the narrow pane.** It didn't block the import. The daily social-post monitor will catch a failed publish.
 - **The Tax ID modal appears on load.** Close it with the X. Never fill it.
+
+---
+
+# "What We Built" vertical: scheduled and verified (Wed 9/30, late)
+
+| Caption opens with | Date | Time | Surface | Media | Status |
+|---|---|---|---|---|---|
+| Twenty apps and sites since January… | Thu 8 Oct | 9:00 AM | YouTube (Short, public) | `built-vertical-9x16.mp4` | Scheduled ✓ |
+| Everybody's talking about AI… | Sun 11 Oct | 12:00 PM | Instagram (Reel) | `built-vertical-9x16.mp4` | Scheduled ✓ |
+
+Both captions have no prices. YouTube links to /built and /assessment; Instagram says "link in bio" (the bio goes to the assessment). Sun 10/11 was the first open Instagram day, and it kicks off the Building Out Loud week. Instagram again imported as Feed and was switched to Reel and saved before scheduling.

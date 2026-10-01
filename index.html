@@ -33,6 +33,7 @@ nav ul{display:flex;gap:28px;list-style:none}
 nav a{font-size:13px;text-decoration:none;color:var(--muted);letter-spacing:.04em}nav a:hover{color:var(--fg)}
 nav li.has-menu{position:relative}
 nav .menu{position:absolute;left:50%;top:calc(100% + 18px);transform:translateX(-50%) translateY(6px);width:420px;background:#0a0a0a;border:1px solid var(--line2);border-radius:14px;padding:10px;box-shadow:0 30px 80px rgba(0,0,0,.7);opacity:0;visibility:hidden;transition:.18s;z-index:30}
+nav .menu{max-height:calc(100vh - 110px);overflow-y:auto}
 nav .menu:before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px}
 nav li.has-menu:hover .menu,nav li.has-menu:focus-within .menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
 nav .menu a{display:block;padding:12px 14px;border-radius:10px;text-decoration:none;letter-spacing:0}
@@ -237,6 +238,7 @@ footer nav a{color:var(--dim)}footer nav a:hover{color:var(--gold)}
         <a href="https://signatureheadshotevent.com" target="_blank" rel="noopener"><b>Headshot Events</b><span>Where most people start. A $75 session, three retouched images, and a look at what a real brand would do for you.</span></a>
         <a href="https://signaturebranding.app" target="_blank" rel="noopener"><b>Signature Branding System</b><span>Your brand in the app — positioning, voice, premium AI imagery, and a content engine that publishes for you. LiveLoop keeps it running weekly.</span></a>
         <a href="/funnels/"><b>Signature Funnels</b><span>Fixes what's leaking. Missed calls answered, leads followed up, appointments booked. Installed in a week, from $129/mo.</span></a>
+        <a href="/vision/"><b>Vision Execution System</b><span>For the vision that's still in your head. We focus it, build your brain, then build and launch the brand, site, content and automation with you in 90 days.</span></a>
         <a href="/growth-partner/"><b>Growth Partner</b><span>Builds what's missing. The brand, the demand and the system behind it — designed from the ground up and run by one team. By application.</span></a>
         <a href="https://signatureagentos.com" target="_blank" rel="noopener"><b>Signature Agent OS</b><span>The operating system for independent insurance agencies. The Brain, the Desk, the Rainmaker — installed and run for you in 30 days.</span></a>
         <a href="https://signaturetow.com" target="_blank" rel="noopener"><b>Signature Tow Support</b><span>An AI dispatcher for tow operators. The 2 AM call gets answered and the job gets booked. Flat rate, no contract.</span></a>

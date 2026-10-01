@@ -58,6 +58,12 @@ section{padding:84px 0}
 .map img{display:block;width:100%;min-width:880px;height:auto}
 .map-note{margin-top:14px;font-size:14px;color:var(--muted);text-align:center}.map-note a{color:var(--gold)}.map-note .swipe{display:none}
 @media(max-width:900px){.map-note .swipe{display:block;margin-top:6px;font-size:13px;color:var(--dim)}}
+.hero-video{position:relative;max-width:960px;margin:8px auto 34px;border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:#000;box-shadow:0 40px 90px rgba(0,0,0,.7);aspect-ratio:16/9}
+.hero-video video{width:100%;height:100%;display:block;object-fit:cover}
+.hero-video .play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:7%;gap:14px;background:linear-gradient(180deg,rgba(1,1,1,0) 55%,rgba(1,1,1,.75));border:0;cursor:pointer;color:var(--fg);font-family:inherit;font-size:13px;letter-spacing:.22em;text-transform:uppercase}
+.hero-video .play svg{width:74px;height:74px;border-radius:50%;background:var(--gold);color:#0b0904;padding:22px;transition:.2s}
+.hero-video .play:hover svg{background:var(--gold-soft);transform:scale(1.06)}
+.hero-video.playing .play{opacity:0;pointer-events:none}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 26px;min-width:0}
 .card .n{font-family:"Playfair Display",serif;font-style:italic;color:var(--gold);font-size:20px}
@@ -134,6 +140,10 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--fg)}
   <div class="hero-text">
     <div class="eyebrow">Building Out Loud</div>
     <h1>I'm not going to tell you about AI. <em>I'm going to show you what we built with it.</em></h1>
+    <div class="hero-video" id="watch">
+      <video id="bVideo" poster="img/video-poster.jpg" preload="metadata" playsinline src="video/signature-what-we-built.mp4"></video>
+      <button class="play" id="bPlay" aria-label="Play the video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>What we built · 67 seconds</span></button>
+    </div>
     <p class="lead">We took our time building our own system first, because it's the foundation every client system is built on. What we built isn't a pile of tools. It's an ecosystem designed to produce working systems for our clients. Here it is, all on one page.</p>
     <div class="cta">
       <a class="btn gold" href="#built">See what we built</a>
@@ -297,5 +307,11 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--fg)}
   <div><a href="../funnels/">Signature Funnels</a> · <a href="../vision/">Vision Execution</a> · <a href="../growth-partner/">Growth Partner</a> · <a href="https://signatureagentos.com">Agent OS</a> · <a href="https://signaturebranding.app">Branding System</a> · <a href="https://signatureheadshotevent.com">Headshot Events</a> · <a href="https://signaturerewards.app">Signature Rewards</a></div>
 </div></footer>
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoObject","name":"What we built: Signature Branding & Marketing","description":"Everybody's talking about AI. We've been building with it. Twenty apps and sites, two full production applications, an ecosystem built from the top down, and what we can build for you.","thumbnailUrl":["https://signaturebrandmarketing.com/built/img/video-poster.jpg"],"uploadDate":"2026-10-01T08:00:00-04:00","duration":"PT67S","contentUrl":"https://signaturebrandmarketing.com/built/video/signature-what-we-built.mp4","embedUrl":"https://signaturebrandmarketing.com/built/#watch","inLanguage":"en-US"}
+</script>
+<script>
+(function(){var w=document.getElementById('watch'),v=document.getElementById('bVideo'),b=document.getElementById('bPlay');if(!w||!v||!b)return;b.addEventListener('click',function(){w.classList.add('playing');v.controls=true;v.play();});v.addEventListener('ended',function(){w.classList.remove('playing');v.controls=false;v.currentTime=0;});})();
+</script>
 </body>
 </html>

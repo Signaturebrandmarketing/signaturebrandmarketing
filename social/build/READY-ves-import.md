@@ -29,3 +29,16 @@ Every slot was empty for that surface: YouTube had nothing after 10/1, and Sat 1
 | Everybody's talking about AI… | Sun 11 Oct | 12:00 PM | Instagram (Reel) | `built-vertical-9x16.mp4` | Scheduled ✓ |
 
 Both captions have no prices. YouTube links to /built and /assessment; Instagram says "link in bio" (the bio goes to the assessment). Sun 10/11 was the first open Instagram day, and it kicks off the Building Out Loud week. Instagram again imported as Feed and was switched to Reel and saved before scheduling.
+
+---
+
+# Signature Rewards video: scheduled and verified (Fri 10/2)
+
+| Caption opens with | Date | Time | Surface | Media | Status |
+|---|---|---|---|---|---|
+| Most rewards programs give you points you'll never use… | Wed 7 Oct | 12:00 PM | FB AI Branding | `rewards-16x9.mp4` | Scheduled ✓ |
+| Most rewards programs… | Sat 10 Oct | 9:00 AM | YouTube (Short) | `rewards-vertical-9x16.mp4` | Scheduled ✓ |
+| Most rewards programs… | Tue 13 Oct | 12:00 PM | Agency FB + Agency LI | `rewards-16x9.mp4` | Scheduled ✓ |
+| Most rewards programs… | Thu 15 Oct | 12:00 PM | Instagram (Reel) | `rewards-vertical-9x16.mp4` | Scheduled ✓ |
+
+Verified by searching the planner for the caption: 4 hits, all Scheduled. The captions have no prices. Instagram was imported as Feed, then switched to Reel and saved before scheduling.

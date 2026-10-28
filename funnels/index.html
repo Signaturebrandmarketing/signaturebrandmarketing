@@ -168,7 +168,7 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--fg)}
         <li>Monthly report</li>
         <li class="inc">Includes 200 texts · 50 call minutes · 300 chat conversations a month</li>
       </ul>
-      <a class="btn ghost" href="https://api.leadconnectorhq.com/widget/bookings/signature-15-min-call" target="_blank" rel="noopener">Start with Starter</a>
+      <a class="btn ghost" data-plan="starter" href="https://signaturebranding.app/funnels?plan=starter">Start with Starter</a>
       <div class="hint">15-minute setup call, then we install.</div>
     </div>
     <div class="plan hot">
@@ -184,7 +184,7 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--fg)}
         <li>Two lead-capture funnels</li>
         <li class="inc">Includes 700 texts · 150 call minutes · 800 chat conversations a month</li>
       </ul>
-      <a class="btn gold" href="https://api.leadconnectorhq.com/widget/bookings/signature-15-min-call" target="_blank" rel="noopener">Start with Growth</a>
+      <a class="btn gold" data-plan="growth" href="https://signaturebranding.app/funnels?plan=growth">Start with Growth</a>
       <div class="hint">Most clients start here.</div>
     </div>
     <div class="plan">
@@ -200,7 +200,7 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--fg)}
         <li>Three lead-capture funnels</li>
         <li class="inc">Includes 1,500 texts · 400 call minutes · 1,500 chat conversations a month</li>
       </ul>
-      <a class="btn ghost" href="https://api.leadconnectorhq.com/widget/bookings/signature-15-min-call" target="_blank" rel="noopener">Start with Premium</a>
+      <a class="btn ghost" data-plan="premium" href="https://signaturebranding.app/funnels?plan=premium">Start with Premium</a>
       <div class="hint">15-minute setup call, then we install.</div>
     </div>
   </div>
@@ -249,6 +249,11 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--fg)}
 
 <script>
 (function(){var w=document.getElementById('heroVideo'),v=document.getElementById('funnelsVideo'),b=document.getElementById('playBtn');if(!w||!v||!b)return;b.addEventListener('click',function(){w.classList.add('playing');v.controls=true;v.play();});v.addEventListener('ended',function(){w.classList.remove('playing');v.controls=false;v.currentTime=0;});})();
+</script>
+<script>
+// Plan buttons go to the app checkout (Ken, 10/28). Carry an ambassador's ?ref= along so the sale is credited.
+(function(){var r=new URLSearchParams(location.search).get('ref');if(!r)return;r=r.replace(/[^A-Za-z0-9_-]/g,'').slice(0,200);if(!r)return;
+document.querySelectorAll('a[data-plan]').forEach(function(a){a.href+= '&ref='+encodeURIComponent(r);});})();
 </script>
 </body>
 </html>

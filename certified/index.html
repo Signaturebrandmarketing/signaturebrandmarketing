@@ -156,6 +156,12 @@ ul.dia li{position:relative;padding-left:24px}
 ul.dia li:before{content:"";position:absolute;left:3px;top:.62em;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
 
 /* what you earn: rate card */
+.ways{display:grid;gap:16px;margin-top:30px}
+.way{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 22px}
+.way .num{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.way h3{font-size:26px;margin:8px 0 12px}
+.way .gets{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:15px;color:var(--muted)}
+.way .gets b{color:var(--gold-soft);font-weight:600}
 .rates{display:grid;gap:16px;margin-top:32px}
 .rate{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 18px 12px}
 .rate.hot{border-color:var(--gold);box-shadow:0 0 0 1px rgba(201,165,103,.2),0 30px 80px rgba(0,0,0,.5)}
@@ -253,6 +259,7 @@ footer a:hover{color:var(--fg);text-decoration:underline}
   .flow .col{padding:28px 0}
   .flow .you{padding-right:48px}
   .flow .col+.col{border-top:0;border-left:1px solid var(--line2);padding-left:48px}
+  .ways{grid-template-columns:1fr 1fr;gap:20px}
   .rates{grid-template-columns:1fr 1fr;gap:18px;align-items:start}
   .rate{padding:30px 28px 16px}
   .rate dl>div{grid-template-columns:104px 1fr}
@@ -336,14 +343,36 @@ footer a:hover{color:var(--fg);text-decoration:underline}
 
 <div class="hair"></div>
 
+<section id="ways"><div class="wrap">
+  <p class="eyebrow">Two ways to partner</p>
+  <h2>Keep your business. Add ours to it.</h2>
+  <p class="sub">Work with Signature one way or both. Nothing about how you run your business has to change.</p>
+  <div class="ways">
+    <div class="way">
+      <p class="num">Way 1</p>
+      <h3>We book it. You shoot it.</h3>
+      <p>We book clients in your area through our events, ambassadors and marketing. You shoot the session to our capture standard, and our system handles everything after the camera.</p>
+      <p class="gets"><b>You earn</b> $50 per $147 session or $40 per $75 headshot, plus $50 if that client starts LiveLoop within 90 days.</p>
+    </div>
+    <div class="way">
+      <p class="num">Way 2</p>
+      <h3>Keep your clients. Add our systems.</h3>
+      <p>Keep shooting your own clients exactly the way you do now, and keep everything you charge for the session. When they need more, like AI branding images, content that posts every week, or follow-up that books them clients, send them to Signature. We do the work.</p>
+      <p class="gets"><b>You earn</b> a referral commission on what they add, plus 15% of every monthly payment for as long as they stay.</p>
+    </div>
+  </div>
+</div></section>
+
+<div class="hair"></div>
+
 <section id="how"><div class="wrap">
   <h2>Your clients get the whole system. You get paid on it.</h2>
   <div class="flow">
     <div class="col you">
       <h3>You</h3>
       <ul class="dia">
-        <li>Shoot the session to the Signature capture standard.</li>
-        <li>Upload the photos.</li>
+        <li>Shoot the sessions we book for you to our capture standard.</li>
+        <li>Keep shooting your own clients your way.</li>
         <li>Introduce your clients to what comes next.</li>
       </ul>
       <p class="that">Our system does the rest.</p>
@@ -370,7 +399,7 @@ footer a:hover{color:var(--fg);text-decoration:underline}
 
   <div class="rates">
     <div class="rate hot">
-      <h3>Sessions we send you</h3>
+      <h3>Way 1: We book it, you shoot it</h3>
       <dl>
         <div><dt>$50</dt><dd><b>per $147 session</b><span>The client buys their AI branding for $147. Their headshot session is free.</span></dd></div>
         <div><dt>$40</dt><dd><b>per $75 headshot session</b></dd></div>
@@ -379,12 +408,10 @@ footer a:hover{color:var(--fg);text-decoration:underline}
       </dl>
     </div>
     <div class="rate">
-      <h3>Clients you bring us</h3>
-      <p class="rate-sub">Standard ambassador rates</p>
+      <h3>Way 2: Your own clients</h3>
+      <p class="rate-sub">You keep your session fee, plus:</p>
       <dl>
-        <div><dt>$25</dt><dd><b>per headshot</b></dd></div>
-        <div><dt>$35</dt><dd><b>per AI Collection</b></dd></div>
-        <div><dt>$40</dt><dd><b>per $147 bundle</b></dd></div>
+        <div><dt>$35</dt><dd><b>per AI Collection</b><span>When a client of yours gets their AI branding images.</span></dd></div>
         <div><dt>25%</dt><dd><b>of setup</b><span>On LiveLoop and our other monthly services.</span></dd></div>
         <div><dt>15%</dt><dd><b>of every monthly payment</b><span>For as long as the client stays.</span></dd></div>
       </dl>
@@ -392,8 +419,8 @@ footer a:hover{color:var(--fg);text-decoration:underline}
   </div>
 
   <div class="stack">
-    <p><b>Clients you bring us:</b> you earn both the session pay and the referral commission.</p>
-    <p><b>Clients we send you:</b> you earn the session pay, plus the LiveLoop bonus.</p>
+    <p><b>Your own clients:</b> you keep whatever you charge for your session, plus the referral commission and residual on everything they add from Signature.</p>
+    <p><b>Sessions we book for you:</b> you earn the session pay, plus the LiveLoop bonus.</p>
     <p><b>Payouts:</b> PayPal, Zelle or check. Paid promptly.</p>
   </div>
   <a class="btn gold go" href="https://signaturerewards.app/certified?ref=certified-landing#apply">Apply</a>
@@ -436,8 +463,8 @@ footer a:hover{color:var(--fg);text-decoration:underline}
     <details><summary>Does it cost anything to join?</summary><p>No. It’s free. Once you’re approved, you’re also a Signature Ambassador, and the usual $97 is waived.</p></details>
     <details><summary>Do I edit the photos?</summary><p>No. You capture and upload. We do the editing, the AI images and the delivery.</p></details>
     <details><summary>Who pays me?</summary><p>Signature does, promptly, by PayPal, Zelle or check.</p></details>
-    <details><summary>Where do the clients come from?</summary><p>Our events, our ambassadors and our marketing. Plus your own clients, when you bring them to us.</p></details>
-    <details><summary>Can I keep my own business?</summary><p>Yes. Your business stays yours. Signature sessions sit alongside it.</p></details>
+    <details><summary>Where do the clients come from?</summary><p>Two places: sessions we book for you through our events, ambassadors and marketing, and your own clients, who you can refer to us for everything beyond the photos.</p></details>
+    <details><summary>Can I keep my own business?</summary><p>Yes. Keep shooting your own clients and keep what you charge. Signature adds the services they need next, and you get paid on those too.</p></details>
   </div>
 </div></section>
 

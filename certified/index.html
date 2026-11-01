@@ -297,14 +297,17 @@ footer a:hover{color:var(--fg);text-decoration:underline}
                             Auto reads an MP4's own shape and treats YouTube Shorts as 9:16.
                             For a vertical phone video on Loom or regular YouTube, set "9:16".
          data-video-poster: optional cover image, e.g. img/video-poster.jpg.
+         data-video-captions: optional WebVTT captions for an MP4 (shown by default),
+                            e.g. video/ken-welcome.vtt.
                             YouTube uses its own thumbnail if this is left empty.
          Leave data-video-url empty and the "Ken’s welcome video" placeholder shows.
          Nothing autoplays. The video starts only when someone taps play.
     ========================================================================== -->
     <div class="vslot" id="welcomeVideo"
-         data-video-url=""
-         data-video-ratio="auto"
-         data-video-poster="">
+         data-video-url="video/ken-welcome.mp4"
+         data-video-ratio="9:16"
+         data-video-poster="img/video-poster.jpg"
+         data-video-captions="video/ken-welcome.vtt">
       <span class="brackets" aria-hidden="true"></span>
       <div class="vframe">
         <div class="vph" role="img" aria-label="Ken’s welcome video, coming soon">
@@ -498,6 +501,7 @@ footer a:hover{color:var(--fg);text-decoration:underline}
   var url = (slot.getAttribute('data-video-url') || '').trim();
   var ratio = (slot.getAttribute('data-video-ratio') || 'auto').trim();
   var poster = (slot.getAttribute('data-video-poster') || '').trim();
+  var captions = (slot.getAttribute('data-video-captions') || '').trim();
   var frame = slot.querySelector('.vframe');
   function setRatio(r) { slot.classList.toggle('is-vertical', r === '9:16'); }
   if (ratio === '9:16' || ratio === '16:9') setRatio(ratio);
@@ -544,6 +548,13 @@ footer a:hover{color:var(--fg);text-decoration:underline}
     v.preload = 'metadata';
     if (poster) v.poster = poster;
     v.src = url;
+    if (captions) {
+      /* Most people watch on a phone with the sound off, so captions start on. */
+      var t = document.createElement('track');
+      t.kind = 'captions'; t.srclang = 'en'; t.label = 'English'; t.src = captions; t.default = true;
+      v.appendChild(t);
+      v.addEventListener('loadedmetadata', function () { if (v.textTracks[0]) v.textTracks[0].mode = 'showing'; });
+    }
     v.addEventListener('loadedmetadata', function () {
       if (ratio === 'auto' && v.videoWidth) setRatio(v.videoHeight > v.videoWidth ? '9:16' : '16:9');
     });

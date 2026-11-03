@@ -259,11 +259,13 @@ async function submitLead(e){
     sms_consent:$('l-sms').checked?'yes':'no',email_ok:$('l-email-ok').checked?'yes':'no',
     ar_score:result.total,ar_tier:result.tier,ar_brand:result.brand,ar_growth:result.growth,ar_automation:result.auto,
     ar_gap_1:GAPS[result.gaps[0]][0],ar_gap_2:GAPS[result.gaps[1]][0],ar_gap_3:GAPS[result.gaps[2]][0],ar_gaps:result.gaps.map((g,i)=>(i+1)+') '+GAPS[g][0]+' → The fix: '+GAPS[g][1]).join('   |   '),ar_pillars:'Brand '+result.brand+'% · Growth '+result.growth+'% · Automation '+result.auto+'%',ar_answers:result.answers+' · '+result.volume+' · In the way: '+result.blocker+' · Route: '+(result.recommended||'—'),ar_volume:result.volume,ar_blocker:result.blocker,ar_recommended:result.recommended||'',
-    source:'AI Readiness Assessment',page:location.href,submitted_at:new Date().toISOString()};
+    source:'AI Readiness Assessment',page:location.href,submitted_at:new Date().toISOString(),
+    ref:(window.sigRef&&sigRef())||'',ambassador_tag:(window.sigRef&&sigRef())?'amb-'+sigRef():''};
   if($('l-sms').checked && !payload.phone){ btn.disabled=false; btn.textContent='Send my report'; $('l-phone').focus(); return false; }
   try{ if(SUBMIT_URL){ await fetch(SUBMIT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); } else { console.log('AR payload',payload); } }catch(err){ console.warn(err); }
   $('t-name').textContent=payload.first_name; go('s-thanks'); return false;
 }
 </script>
+<script src="/ref.js" defer></script>
 </body>
 </html>

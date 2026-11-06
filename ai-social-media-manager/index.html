@@ -317,11 +317,6 @@ footer a{color:var(--muted);text-decoration:none;display:inline-block;padding:6p
   <ul><li><a href="/">Home</a></li><li><a href="/funnels/">Signature Funnels</a></li><li><a href="/growth-partner/">Growth Partner</a></li><li><a href="https://signaturebranding.app" target="_blank" rel="noopener">Branding System</a></li><li><a href="https://signatureheadshotevent.com" target="_blank" rel="noopener">Headshot Events</a></li><li><a href="https://kennethlamor.com" target="_blank" rel="noopener">Kenneth Lamor</a></li></ul>
 </div></footer>
 
-<script>
-// "See LiveLoop plans" goes to the app. Carry an ambassador's ?ref= along so the sale is credited
-// (same rule as /funnels/; the app saves it as the sig_ref cookie for checkout).
-(function(){var r=new URLSearchParams(location.search).get('ref');if(!r)return;r=r.replace(/[^A-Za-z0-9_-]/g,'').slice(0,200);if(!r)return;
-document.querySelectorAll('a[data-ref]').forEach(function(a){try{var u=new URL(a.href);u.searchParams.set('ref',r);a.href=u.toString();}catch(e){}});})();
-</script>
+<script src="/ref.js" defer></script>
 </body>
 </html>

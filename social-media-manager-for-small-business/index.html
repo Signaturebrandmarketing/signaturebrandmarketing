@@ -58,6 +58,10 @@ header{position:sticky;top:0;z-index:20;background:rgba(1,1,1,.86);backdrop-filt
 .hero h1{font-size:clamp(36px,4.5vw,58px);margin:16px 0 20px}
 .hero .lead{font-size:18px;max-width:34em;color:var(--body)}
 .hero .cta{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .vidbox{margin:6px 0 28px}
+.hero .vid{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line2);background:#000;box-shadow:0 24px 60px -24px rgba(201,165,103,.38)}
+.hero .vid video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
+.hero .vidbox figcaption{margin-top:10px;font-size:13px;color:var(--muted)}
 /* the job posting */
 .job{margin:0}
 .job .card{background:linear-gradient(180deg,#121110,#0a0a0a);border:1px solid var(--line2);border-radius:var(--radius);padding:24px;box-shadow:0 40px 90px rgba(0,0,0,.6)}
@@ -190,6 +194,7 @@ footer a{color:var(--muted);text-decoration:none;display:inline-block;padding:6p
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"WebPage","@id":"https://signaturebrandmarketing.com/social-media-manager-for-small-business/#page","url":"https://signaturebrandmarketing.com/social-media-manager-for-small-business/","name":"Social Media Manager for Small Business | Signature LiveLoop","description":"Hire a social media manager for your small business without the payroll. Signature LiveLoop plans, writes and schedules your posts every week. You approve.","inLanguage":"en-US","isPartOf":{"@id":"https://signaturebrandmarketing.com/#site"},"about":{"@id":"https://signaturebrandmarketing.com/social-media-manager-for-small-business/#service"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://signaturebrandmarketing.com/social-media-manager-for-small-business/img/og.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://signaturebrandmarketing.com/social-media-manager-for-small-business/#crumbs"}},
+{"@type":"VideoObject","@id":"https://signaturebrandmarketing.com/social-media-manager-for-small-business/#video","name":"Signature LiveLoop: what’s included and how it works","description":"What Signature LiveLoop includes and how it works, from Signature Branding & Marketing.","thumbnailUrl":"https://signaturebranding.app/liveloop-video-poster.jpg","contentUrl":"https://signaturebranding.app/liveloop-video.mp4","uploadDate":"2026-10-25","duration":"PT1M23S","publisher":{"@id":"https://signaturebrandmarketing.com/#org"},"isPartOf":{"@id":"https://signaturebrandmarketing.com/social-media-manager-for-small-business/#page"}},
 {"@type":"BreadcrumbList","@id":"https://signaturebrandmarketing.com/social-media-manager-for-small-business/#crumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Signature Branding & Marketing","item":"https://signaturebrandmarketing.com/"},{"@type":"ListItem","position":2,"name":"Social Media Manager for Small Business","item":"https://signaturebrandmarketing.com/social-media-manager-for-small-business/"}]},
 {"@type":"Service","@id":"https://signaturebrandmarketing.com/social-media-manager-for-small-business/#service","name":"Signature LiveLoop","alternateName":"Signature LiveLoop social media manager for small business","serviceType":"Social media management for small business","description":"A done-for-you social media manager for small business. Every week Signature LiveLoop plans your posts, writes them in your voice from your Signature DNA brand kit, pairs them with branded images made from your own headshots, and schedules them to your Facebook, Instagram and LinkedIn after you approve your week.","url":"https://signaturebrandmarketing.com/social-media-manager-for-small-business/","provider":{"@type":"ProfessionalService","@id":"https://signaturebrandmarketing.com/#org","name":"Signature Branding & Marketing","url":"https://signaturebrandmarketing.com/"},"brand":{"@type":"Brand","name":"Signature LiveLoop"},"audience":{"@type":"BusinessAudience","audienceType":"Small business owners"},"areaServed":{"@type":"Country","name":"United States"},"availableChannel":{"@type":"ServiceChannel","serviceUrl":"https://signaturebranding.app/liveloop"}},
 {"@type":"FAQPage","@id":"https://signaturebrandmarketing.com/social-media-manager-for-small-business/#faq","mainEntity":[
@@ -219,6 +224,10 @@ footer a{color:var(--muted);text-decoration:none;display:inline-block;padding:6p
   <div>
     <div class="eyebrow">Signature LiveLoop™ <span>by Signature Branding &amp; Marketing</span></div>
     <h1>A social media manager for your small business, without the payroll.</h1>
+    <figure class="vidbox">
+      <div class="vid"><video controls playsinline preload="metadata" poster="https://signaturebranding.app/liveloop-video-poster.jpg" aria-label="Signature LiveLoop: what’s included and how it works"><source src="https://signaturebranding.app/liveloop-video.mp4" type="video/mp4"></video></div>
+      <figcaption>Watch: how Signature LiveLoop™ works · 1:22</figcaption>
+    </figure>
     <p class="lead">Signature LiveLoop™ does the job you’d hire for. Every week it plans your posts, writes them in your voice, pairs them with your own photos and schedules them. It runs on AI built from your Signature DNA™, and you approve your week before anything posts. Nobody to recruit, train or manage.</p>
     <div class="cta"><a class="btn gold" data-ref href="https://signaturebranding.app/liveloop">See LiveLoop plans</a><a class="btn ghost" href="#compare">Compare your options</a></div>
   </div>
